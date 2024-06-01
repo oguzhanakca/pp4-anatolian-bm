@@ -13,5 +13,4 @@ class Post(models.Model):
     )
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    comment = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
