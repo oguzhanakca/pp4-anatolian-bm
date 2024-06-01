@@ -1,0 +1,1 @@
+web: gunicorn anatolian_bm.wsgi
