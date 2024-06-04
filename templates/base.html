@@ -34,7 +34,7 @@
 
 <body class="d-flex flex-column h-100 main-bg">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md bg-body-tertiary">
+  <nav class="navbar navbar-expand-md bg-color">
     <div id="navbar" class="container-fluid">
       <a class="navbar-brand company-logo" href="{% url 'home' %}"><img
           src="{% static 'images/company-logo-transparent.png' %}" alt="Logo" width="36" height="36"
@@ -46,7 +46,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="#">About Us</a>
+          <a class="nav-link active" href="#">About Us</a>
           <a class="nav-link" href="#">Blog</a>
           <a class="nav-link" href="#">Booking</a>
           <a class="nav-link" href="#">Shop</a>
@@ -107,11 +107,11 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer mt-auto py-3 bg-body-tertiary">
-    <p class="m-0 text-center text-black">
-      {% block copyright %} Copyright by Oğuzhan Akça {% endblock copyright %}
+  <footer class="footer mt-auto py-1 bg-color">
+    <p class="m-0 text-center footer-text">
+      Copyright by Oğuzhan Akça
     </p>
-    <p class="m-0 text-center text-dark fs-4">
+    <p class="m-0 text-center fs-4 footer-text">
       <i class="fa-brands fa-facebook-f"></i>
       <i class="fa-brands fa-x-twitter ms-3"></i>
       <i class="fa-brands fa-square-instagram ms-3"></i>

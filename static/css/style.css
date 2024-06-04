@@ -3,13 +3,21 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  color: #3c4955;
+  color: #3c2f2f;
+}
+
+.bg-color {
+  background-color: #fff4e6;
 }
 
 .nav-link {
-  color: #3c4955;
+  color: #3c2f2f;
 }
 
 .active {
   font-weight: 500;
+}
+
+.footer-text {
+  color: #4b3832;
 }
