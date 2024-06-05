@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
+{% url 'about' as about_url %}
 {% url 'blog-home' as blog_home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
@@ -47,10 +48,11 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="#">About Us</a>
-          <a class="nav-link" href="#">Blog</a>
-          <a class="nav-link" href="#">Booking</a>
-          <a class="nav-link" href="#">Shop</a>
+          <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{% url 'about' %}"
+            aria-current="page">About Us</a>
+          <a class="nav-link" href="{% url 'blog_home' %}" aria-current="page">Blog</a>
+          <a class="nav-link" href="#" aria-current="page">Booking</a>
+          <a class="nav-link" href="#" aria-current="page">Shop</a>
           {% if user.is_authenticated %}
           <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
             href="{% url 'account_logout' %}">Logout</a>
@@ -109,16 +111,19 @@
 
   <!-- Footer -->
   <footer class="footer mt-auto py-1 home-nav-foot">
-    <p class="m-0 text-center footer-text fw-semibold">
+    <p class="m-0 text-center footer-text fw-semibold text-dark">
       Copyright by Oğuzhan Akça
     </p>
     <h3 class="m-0 text-center fs-4 footer-text">
-      <i class="fa-brands fa-facebook-f"></i>
-      <i class="fa-brands fa-x-twitter ms-3"></i>
-      <i class="fa-brands fa-square-instagram ms-3"></i>
-      <i class="fa-brands fa-tiktok ms-3"></i>
-      <i class="fa-brands fa-youtube ms-3"></i>
-      <span hidden>Social Media</span>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i><span
+          hidden>Facebook</span></a>
+      <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter ms-3"></i><span hidden>X</span></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-square-instagram ms-3"></i><span
+          hidden>Instagram</span></a>
+      <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok ms-3"><span
+            hidden>TikTok</span></i></a>
+      <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube ms-3"><span
+            hidden>Youtube</span></i></a>
     </h3>
   </footer>
 

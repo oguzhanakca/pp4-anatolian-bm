@@ -26,6 +26,11 @@
   color: #4b3832;
 }
 
+.footer-text > a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .company-name {
   font-size: 24px;
   display: inline-block;
@@ -37,4 +42,12 @@
   font-size: 20px;
   margin: 0;
   padding: 0;
+}
+
+.about-contact > li {
+  text-decoration: none;
+}
+
+.about-social-media {
+  font-size: 28px;
 }
