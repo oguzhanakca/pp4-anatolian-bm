@@ -6,7 +6,11 @@
   color: #3c2f2f;
 }
 
-.bg-color {
+.home-nav-foot {
+  background-color: #be9b7b;
+}
+
+.home-bg-color {
   background-color: #fff4e6;
 }
 
@@ -20,4 +24,17 @@
 
 .footer-text {
   color: #4b3832;
+}
+
+.company-name {
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-bottom: 0;
+}
+
+.homepage-title {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }

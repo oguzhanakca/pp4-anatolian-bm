@@ -10,3 +10,9 @@ def home(request):
         request,
         "home/index.html",
     )
+
+def about(request):
+    """
+    Display About Us page
+    """
+    return render(request,"home/about.html")

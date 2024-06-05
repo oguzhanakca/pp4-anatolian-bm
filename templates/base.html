@@ -32,21 +32,22 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100 main-bg home-bg-color">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-md bg-color">
+  <nav class="navbar navbar-expand-md home-nav-foot">
     <div id="navbar" class="container-fluid">
       <a class="navbar-brand vollkorn-font" href="{% url 'home' %}"><img
-          src="{% static 'images/company-logo-transparent.png' %}" alt="Logo" width="36" height="36"
+          src="{% static 'images/company-logo-transparent.png' %}" alt="company-logo" width="36" height="36"
           class="d-inline-block align-bottom">
-        Anatolian B&M</a>
+        <h1 class="company-name">Anatolian B&M</h1>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" href="#">About Us</a>
+          <a class="nav-link" href="#">About Us</a>
           <a class="nav-link" href="#">Blog</a>
           <a class="nav-link" href="#">Booking</a>
           <a class="nav-link" href="#">Shop</a>
@@ -107,18 +108,18 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer mt-auto py-1 bg-color">
-    <p class="m-0 text-center footer-text">
+  <footer class="footer mt-auto py-1 home-nav-foot">
+    <p class="m-0 text-center footer-text fw-semibold">
       Copyright by Oğuzhan Akça
     </p>
-    <p class="m-0 text-center fs-4 footer-text">
+    <h3 class="m-0 text-center fs-4 footer-text">
       <i class="fa-brands fa-facebook-f"></i>
       <i class="fa-brands fa-x-twitter ms-3"></i>
       <i class="fa-brands fa-square-instagram ms-3"></i>
       <i class="fa-brands fa-tiktok ms-3"></i>
       <i class="fa-brands fa-youtube ms-3"></i>
-
-    </p>
+      <span hidden>Social Media</span>
+    </h3>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
