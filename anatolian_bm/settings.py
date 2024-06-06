@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_summernote',
     'home',
+    'about',
     'blog',
 ]
 
