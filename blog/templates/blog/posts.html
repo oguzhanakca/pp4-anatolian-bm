@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!-- posts.html content starts here -->
@@ -17,18 +18,33 @@
     <!-- Blog Entries Column -->
     <div class="col-12 mt-3 left">
       <div class="row">
-        <div class="card blog-card" style="width: 18rem;">
+
+        <div class="card col-sm-4 blog-card mb-2">
           <img src="{% static 'images/blog.jpg' %}" class="card-img-top" alt="Restaurant Feedback">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title blog-card-title">Card title</h5>
+            <p class="card-text blog-card-text">This is a wider card with supporting text below as a natural lead-in to
+              additional
+              content. This content is a little bit longer.</p>
+            <p class="card-text blog-card-lastupdate" maxlength="100" max><small>Last updated 3 mins ago</small></p>
           </div>
         </div>
         {% for post in post_list %}
-        <div class="col-md-4">
-          <div class="card mb-4">
+        <div class="card col-sm-4 blog-card mb-2 me-2">
+          <div
+            class="card-header d-flex justify-content-between align-baseline align-items-center py-2 blog-card-header ">
+            <p class="card-text blog-card-author mb-0"><small>Category : {{ post.get_category_display }}</small></p>
+            <p class="card-text blog-card-author"><small>Last comment : {{ post.updated_at | naturaltime }}</small></p>
+          </div>
+          <img src="{% static 'images/blog.jpg' %}" class="card-img-top" alt="Restaurant Feedback">
+          <div class="card-body">
+            <h5 class="card-title blog-card-title">{{ post.title }}</h5>
+            <p class="card-text blog-card-text">{{ post.content | safe }}</p>
+            <p class="card-text blog-card-author"><small>Author: {{ post.author }}</small></p>
+          </div>
+        </div>
+        <!-- <div class="col-md-4">
+          <div class="card col-sm-4 blog-card mb-2">
             <div class="card-body">
               <div class="image-container">
                 <div class="image-flash">
@@ -44,7 +60,7 @@
               <p class="card-text text-muted h6">{{ post.created_on}}</p>
             </div>
           </div>
-        </div>
+        </div> -->
         {% if forloop.counter|divisibleby:3 %}
       </div>
       <div class="row">{% endif %} {% endfor %}</div>

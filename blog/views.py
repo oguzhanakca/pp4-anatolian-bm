@@ -25,7 +25,6 @@ def post_detail(request, id):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, id=id)
     comments = Comment.objects.filter(post_id=post.id).order_by("created_at")
-    print(comments)
 
     return render(
         request,

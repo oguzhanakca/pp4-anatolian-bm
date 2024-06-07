@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 STATUS = ((0, "Hidden"), (1, "Published"))
-CATEGORY = ((0, "Restaurant"), (1, "Market"))
+CATEGORY = ((0, "Restaurant"), (1, "Market"), (2, "General"))
 
 # Create your models here.
 class Post(models.Model):
