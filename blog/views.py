@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Post
+from .models import Post, Comment
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -8,7 +8,7 @@ class PostList(generic.ListView):
     template_name = "blog/posts.html"
     paginate_by = 6
 
-def post_detail(request, slug):
+def post_detail(request, id):
     """
     Display an individual :model:`blog.Post`.
 
@@ -22,11 +22,14 @@ def post_detail(request, slug):
     :template:`blog/post_detail.html`
     """
 
-    queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, id=id)
+    comments = Comment.objects.filter(post_id=post.id).order_by("created_at")
+    print(comments)
 
     return render(
         request,
         "blog/post_detail.html",
-        {"post": post},
+        {"post": post,
+         "comments":comments},
     )

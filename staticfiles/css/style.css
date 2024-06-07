@@ -1,161 +1,53 @@
-body {
-  background-color: #f9fafc;
+.vollkorn-font {
+  font-family: "Vollkorn", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #3c2f2f;
 }
 
-.brand {
-  font-family: Lato, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #4a4a4f;
+.home-nav-foot {
+  background-color: #be9b7b;
 }
 
-.red-o {
-  color: #e84610;
+.home-bg-color {
+  background-color: #fff4e6;
 }
 
-.thin {
-  font-weight: 300;
+.nav-link {
+  color: #3c2f2f;
 }
 
-.light-bg {
-  background-color: #fff;
+.active {
+  font-weight: 500;
 }
 
-.dark-bg {
-  background-color: #445261;
+.footer-text {
+  color: #4b3832;
 }
 
-.main-bg {
-  background-color: #f9fafc;
+.footer-text > a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.card {
-  border: none;
-  background-color: transparent;
-}
-
-.image-container {
-  position: relative;
-}
-
-.image-flash {
-  position: absolute;
-  bottom: 5%;
-  min-width: 30%;
-  left: -2px;
-  background-color: #188181;
-}
-
-.scale {
-  width: 100%;
-  height: auto;
-}
-
-.author {
-  color: white;
-  margin: 4px;
-  text-transform: uppercase;
-}
-
-.masthead {
-  margin-top: 10px;
-  overflow: hidden;
-  position: relative;
+.company-name {
+  font-size: 24px;
   display: inline-block;
-  height: 33vh;
-  width: 100%;
+  vertical-align: baseline;
+  margin-bottom: 0;
 }
 
-.masthead-text {
-  background-color: #445261;
-  color: white;
-  position: relative;
+.homepage-title {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }
 
-.masthead-image {
-  position: relative;
-  overflow: hidden;
-}
-
-.masthead-image:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 90%;
-  height: 100%;
-  width: 150%;
-  background: #445261;
-  -webkit-transform: skew(15deg);
-  -moz-transform: skew(15deg);
-  transform: skew(15deg);
-  z-index: 100;
-}
-
-.post-link {
-  text-decoration: none;
-  color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-  color: #e84610;
-}
-
-.post-title {
-  margin-top: 10%;
-  margin-left: 5%;
-}
-
-.post-subtitle {
-  margin-left: 5%;
-  color: lightgray;
-}
-
-.btn-signup,
-.btn-edit {
-  background-color: #188181;
-  color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-  background-color: #fff;
-  color: #23bbbb;
-}
-
-.link {
-  color: #23bbbb;
+.about-contact > li {
   text-decoration: none;
 }
 
-.link:hover,
-.link:active {
-  color: #445261;
-  text-decoration: underline;
-}
-
-.btn-like {
-  color: #e84610;
-  border: none;
-  background: transparent;
-}
-
-.btn-delete {
-  color: #fff;
-  background: #e84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-  color: #e84610;
-  background: transparent;
-  border: none;
-}
-
-.faded {
-  color: rgb(172, 175, 175);
-}
-
-.approval {
-  color: rgb(222, 146, 168);
+.about-social-media {
+  font-size: 28px;
 }

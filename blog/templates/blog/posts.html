@@ -15,9 +15,9 @@
                   <p class="author">Author: {{ post.author }}</p>
                 </div>
               </div>
-              <a href="{% url 'post_detail' post.slug %}" class="post-link">
+              <a href="{% url 'post_detail' post.id %}" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
-                <p class="card_text">{{ post.excerpt }}</p>
+                <p class="card_text">{{ post.content | safe }}</p>
               </a>
 
               <hr />
@@ -36,14 +36,12 @@
       {% if page_obj.has_previous %}
       <li>
         <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
-          &laquo; PREV</a
-        >
+          &laquo; PREV</a>
       </li>
       {% endif %} {% if page_obj.has_next %}
       <li>
         <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-          NEXT &raquo;</a
-        >
+          NEXT &raquo;</a>
       </li>
       {% endif %}
     </ul>
