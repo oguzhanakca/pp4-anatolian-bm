@@ -1,11 +1,31 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 
-<!-- index.html content starts here -->
-<div class="container-fluid">
+<!-- posts.html content starts here -->
+<div class="container-lg">
+  <div class="row">
+    <div class="input-group mb-3 mt-1">
+      <input type="text" class="form-control border-0 bg-body-secondary rounded" placeholder="Search Post"
+        aria-label="Search Post" aria-describedby="button-addon2">
+      <button class="btn btn-outline-success rounded-circle border-0" type="button" id="button-addon2"><i
+          class="fa-solid fa-circle-right"></i></button>
+    </div>
+  </div>
+
   <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-12 mt-3 left">
       <div class="row">
+        <div class="card" style="width: 18rem;">
+          <img src="{% static 'images/blog.jpg' %}" class="card-img-top" alt="Restaurant Feedback">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
         {% for post in post_list %}
         <div class="col-md-4">
           <div class="card mb-4">
@@ -48,6 +68,9 @@
   </nav>
   {% endif %}
 </div>
+</div>
+
+
 
 <!-- index.html content ends here -->
 {% endblock %} {% block copyright %} Copyright 2023 Matt Rudge {% endblock %}
