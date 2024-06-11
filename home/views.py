@@ -10,3 +10,4 @@ def home(request):
         request,
         "home/index.html",
     )
+

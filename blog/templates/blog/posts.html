@@ -4,9 +4,9 @@
 {% block content %}
 
 <!-- posts.html content starts here -->
-<div class="container-lg">
-  <div class="row">
-    <div class="input-group mb-3 mt-1">
+<div class="container-lg gap-1">
+  <div class="row my-3">
+    <div class="input-group">
       <input type="text" class="form-control border-0 bg-body-secondary rounded" placeholder="Search Post"
         aria-label="Search Post" aria-describedby="button-addon2">
       <button class="btn btn-outline-success rounded-circle border-0" type="button" id="button-addon2"><i
@@ -16,30 +16,18 @@
 
   <div class="row">
     <!-- Blog Entries Column -->
-    <div class="col-12 mt-3 left">
-      <div class="row">
-
-        <div class="card col-sm-4 blog-card mb-2">
-          <img src="{% static 'images/blog.jpg' %}" class="card-img-top" alt="Restaurant Feedback">
-          <div class="card-body">
-            <h5 class="card-title blog-card-title">Card title</h5>
-            <p class="card-text blog-card-text">This is a wider card with supporting text below as a natural lead-in to
-              additional
-              content. This content is a little bit longer.</p>
-            <p class="card-text blog-card-lastupdate" maxlength="100" max><small>Last updated 3 mins ago</small></p>
-          </div>
-        </div>
+    <div class="col-12">
+      <div class="row gap-1">
         {% for post in post_list %}
-        <div class="card col-sm-4 blog-card mb-2 me-2">
-          <div
-            class="card-header d-flex justify-content-between align-baseline align-items-center py-2 blog-card-header ">
-            <p class="card-text blog-card-author mb-0"><small>Category : {{ post.get_category_display }}</small></p>
+        <div class="card col-sm-4 blog-card">
+          <div class="card-header d-flex justify-content-between align-baseline align-items-center blog-card-header ">
+            <p class="card-text blog-card-author mb-0"><small>{{ post.get_category_display }}</small></p>
             <p class="card-text blog-card-author"><small>Last comment : {{ post.updated_at | naturaltime }}</small></p>
           </div>
-          <img src="{% static 'images/blog.jpg' %}" class="card-img-top" alt="Restaurant Feedback">
+          <img src="{% static 'images/blog.jpg' %}" class="card-img-top rounded-0" alt="Restaurant Feedback">
           <div class="card-body">
             <h5 class="card-title blog-card-title">{{ post.title }}</h5>
-            <p class="card-text blog-card-text">{{ post.content | safe }}</p>
+            <p class="card-text blog-card-text">{{ post.content | safe}}</p>
             <p class="card-text blog-card-author"><small>Author: {{ post.author }}</small></p>
           </div>
         </div>
@@ -63,7 +51,7 @@
         </div> -->
         {% if forloop.counter|divisibleby:3 %}
       </div>
-      <div class="row">{% endif %} {% endfor %}</div>
+      <div class="row gap-1">{% endif %} {% endfor %}</div>
     </div>
   </div>
   {% if is_paginated %}
