@@ -122,7 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ACCOUNT_FORMS = {'signup': 'anatolian_bm.forms.CustomSignupForm'}
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_USERNAME_MIN_LENGTH = 5
+ACCOUNT_EMAIL_REQUIRED = True
 
 
 # Internationalization
