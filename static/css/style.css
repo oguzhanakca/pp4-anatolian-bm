@@ -63,8 +63,15 @@
 
 .errorlist {
   list-style: none;
+  background-color: #fff4e6;
   color: rgb(236, 34, 34);
   padding-left: 0;
+  border: none;
+}
+
+.errorlist > .list-group-item {
+  background-color: inherit;
+  border: none;
 }
 
 .signup > ul {

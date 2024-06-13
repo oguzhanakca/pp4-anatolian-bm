@@ -28,6 +28,20 @@
                 {% endfor %}
             </ul>
             {% endif %}
+            {% if form.errors %}
+            <div class="row">
+                <h5>Errors :</h5>
+                <ul class="list-group errorlist">
+                    {% for key, value in form.errors.items %}
+                    <li class="list-group-item">{% if key == 'password1' or key == 'password2' %} Password
+                        {% elif key != '__all__' %} {{ key.capitalize }}
+                        {% endif %} : {{ value }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
 
             <form method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
