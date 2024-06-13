@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
+    'widget_tweaks',
     'home',
     'about',
     'blog',
@@ -122,7 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ACCOUNT_FORMS = {'signup': 'anatolian_bm.forms.CustomSignupForm'}
+ACCOUNT_FORMS = {'signup': 'anatolian_bm.forms.CustomSignupForm',
+                 'reset_password': 'anatolian_bm.forms.CustomPasswordResetForm',}
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_MIN_LENGTH = 5

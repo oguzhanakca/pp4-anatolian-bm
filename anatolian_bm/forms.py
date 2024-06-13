@@ -1,20 +1,56 @@
 from django import forms as d_forms
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, ResetPasswordForm
 
 class CustomSignupForm(SignupForm):
-
-    first_name = d_forms.CharField(max_length = 25, label='First Name', required=True)
-    last_name = d_forms.CharField(max_length = 25, label='Last Name', required=True)
+    username = d_forms.CharField(
+        max_length=30, 
+        label='Username',
+        widget=d_forms.TextInput(attrs={'placeholder': 'Enter your username','class':'form-control'})
+    )
+    first_name = d_forms.CharField(
+        max_length=30, 
+        label='First Name',
+        widget=d_forms.TextInput(attrs={'placeholder': 'Enter your first name','class':'form-control'})
+    )
+    last_name = d_forms.CharField(
+        max_length=30, 
+        label='Last Name',
+        widget=d_forms.TextInput(attrs={'placeholder': 'Enter your last name','class':'form-control'})
+    )
+    email = d_forms.EmailField(
+        max_length=254,
+        label='Email',
+        widget=d_forms.EmailInput(attrs={'placeholder': 'Enter your email','class':'form-control'})
+    )
+    password1 = d_forms.CharField(
+        label='Password',
+        widget=d_forms.PasswordInput(attrs={'placeholder': 'Enter your password','class':'form-control'})
+    )
+    password2 = d_forms.CharField(
+        label='Password (again)',
+        widget=d_forms.PasswordInput(attrs={'placeholder': 'Confirm your password','class':'form-control'})
+    )
 
     def save(self, request):
 
         # Ensure you call the parent class's save.
         # .save() returns a User object.
         user = super(CustomSignupForm, self).save(request)
+        user.username = self.cleaned_data['username']
+        user.email = self.cleaned_data['email']
+        user.password1 = self.cleaned_data['password1']
+        user.password2 = self.cleaned_data['password2']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
-        
+        user.save()
         # Add your own processing here.
-    
         # You must return the original result.
         return user
+    
+
+class CustomPasswordResetForm(ResetPasswordForm):
+    email = d_forms.EmailField(
+        max_length=254,
+        label='Email',
+        widget=d_forms.EmailInput(attrs={'placeholder': 'Enter your email address'})
+    )
