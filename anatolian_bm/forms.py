@@ -1,7 +1,10 @@
 from django import forms as d_forms
-from allauth.account.forms import SignupForm, ResetPasswordForm
+from allauth.account.forms import SignupForm, ResetPasswordForm, LoginForm
 
 class CustomSignupForm(SignupForm):
+    """
+    Sign Up form for the account
+    """
     username = d_forms.CharField(
         max_length=30, 
         label='Username',
@@ -47,8 +50,30 @@ class CustomSignupForm(SignupForm):
         # You must return the original result.
         return user
     
+class CustomLoginForm(LoginForm):
+    """
+    Login form
+    """
+    login = d_forms.CharField(
+        max_length=254,
+        label='Username',
+        widget=d_forms.TextInput(attrs={'placeholder': 'Enter your username', 'class': 'form-control'})
+    )
+    password = d_forms.CharField(
+        label='Password',
+        widget=d_forms.PasswordInput(attrs={'placeholder': 'Enter your password', 'class': 'form-control'})
+    )
+    remember = d_forms.BooleanField(
+        label='Remember Me',
+        required=False,
+        widget=d_forms.CheckboxInput(attrs={'class': 'form-check-input'})
+    )
 
+    
 class CustomPasswordResetForm(ResetPasswordForm):
+    """
+    Password Reset form for the Forgot Password? option
+    """
     email = d_forms.EmailField(
         max_length=254,
         label='Email',

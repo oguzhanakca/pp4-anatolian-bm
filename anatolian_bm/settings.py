@@ -124,11 +124,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 ACCOUNT_FORMS = {'signup': 'anatolian_bm.forms.CustomSignupForm',
-                 'reset_password': 'anatolian_bm.forms.CustomPasswordResetForm',}
+                 'reset_password': 'anatolian_bm.forms.CustomPasswordResetForm',
+                 'login': 'anatolian_bm.forms.CustomLoginForm',}
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_USERNAME_MIN_LENGTH = 5
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
