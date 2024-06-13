@@ -60,3 +60,15 @@
   white-space: nowrap; /* Don't forget this one */
   text-overflow: ellipsis;
 }
+
+.errorlist {
+  list-style: none;
+  color: rgb(236, 34, 34);
+  padding-left: 0;
+}
+
+.signup > ul {
+  list-style: circle;
+  padding-left: 1rem;
+  color: rgb(15, 68, 88);
+}
