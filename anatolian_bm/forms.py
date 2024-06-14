@@ -1,5 +1,5 @@
 from django import forms as d_forms
-from allauth.account.forms import SignupForm, ResetPasswordForm, LoginForm
+from allauth.account.forms import SignupForm, ResetPasswordForm, LoginForm, ResetPasswordKeyForm
 
 class CustomSignupForm(SignupForm):
     """
