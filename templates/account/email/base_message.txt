@@ -1,11 +1,11 @@
 {% load i18n %}
 {% blocktrans %}
-Hello from Anatolian B&M!
+Hello {{ username}},
 {% endblocktrans %}
-
 {% block content %}
 {% endblock content %}
 {% blocktrans %}
 Thank you for using our service!
+Anatolian B&M
 {% endblocktrans %}
 
