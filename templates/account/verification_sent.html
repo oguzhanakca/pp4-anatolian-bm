@@ -5,12 +5,13 @@
 {% trans "Verify Your Email Address" %}
 {% endblock head_title %}
 {% block content %}
-{% element h1 %}
-{% trans "Verify Your Email Address" %}
-{% endelement %}
-{% element p %}
-{% blocktrans %}We have sent an email to you for verification. Follow the link provided to finalize the signup process.
-If you do not see the verification email in your main inbox, check your spam folder. Please contact us if you do not
-receive the verification email within a few minutes.{% endblocktrans %}
-{% endelement %}
+<div class="container-lg text-center mt-3">
+    <h2>{% trans "Verify Your Email Address" %}</h2>
+    {% blocktrans %}
+    <p>We have sent an email to you for verification. You have to verify your account to use our site.</p>
+    <p>Follow the link provided to finalize the signup process. If you do not see the verification email in your main
+        inbox, check your spam folder.</p>
+    <p>Please contact us if you do not receive the verification email within a few minutes.</p>
+    {% endblocktrans %}
+</div>
 {% endblock content %}
