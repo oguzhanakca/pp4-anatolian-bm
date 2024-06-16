@@ -51,3 +51,31 @@
 .about-social-media {
   font-size: 28px;
 }
+
+.blog-card {
+  background-color: #3c2f2f;
+  color: #fff4e6;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
+}
+
+.errorlist {
+  list-style: none;
+  background-color: #fff4e6;
+  color: rgb(236, 34, 34);
+  padding-left: 0;
+  border: none;
+}
+
+.errorlist > .list-group-item {
+  background-color: inherit;
+  border: none;
+}
+
+.signup > ul {
+  list-style: circle;
+  padding-left: 1rem;
+  color: rgb(15, 68, 88);
+}
