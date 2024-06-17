@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .models import Booking
 from .forms import BookingForm
 
 
@@ -8,16 +7,18 @@ def book(request):
     """
     Booking function
     """
-    form = BookingForm(request.POST)
+    form = BookingForm(data=request.POST)
     if form.is_valid():
-        form.save()
+        booking = form.save(commit=False)
+        booking.user = request.user
+        booking.save()
         return redirect('booking_success')
     else:
         form = BookingForm()
     
     return render(
-        request, 'booking/booking.html', {'form' : form},
+        request, 'booking/booking.html', {'form' : form}
     )
 
 def booking_success(request):
-    return render(request, 'booking/booking_success.html'),
+    return render(request, 'booking/booking_success.html')

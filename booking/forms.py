@@ -1,6 +1,8 @@
 import datetime
 from django import forms
 from .models import Booking
+from django.core.exceptions import ValidationError
+
 
 class BookingForm(forms.ModelForm):
     # Custom field for phone number
@@ -15,3 +17,5 @@ class BookingForm(forms.ModelForm):
             'guests': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'How many guests will be coming?'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Please write down everything we need to know about your reservation.'})
         }
+
+    
