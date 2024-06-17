@@ -1,20 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Booking
+from .forms import BookingForm
+
 
 # Create your views here.
-def booking(request):
+def book(request):
     """
-    Display an individual :model:`blog.Post`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-
-    **Template:**
-
-    :template:`blog/post_detail.html`
+    Booking function
     """
-
+    form = BookingForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('booking_success')
+    else:
+        form = BookingForm()
+    
     return render(
-        request,
+        request, 'booking/booking.html', {'form' : form},
     )
+
+def booking_success(request):
+    return render(request, 'booking/booking_success.html'),

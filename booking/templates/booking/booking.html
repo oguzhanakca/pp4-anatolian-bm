@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Booking.html starts here -->
+<div class="container-lg">
+    <div class="row">
+        <h2>Book Now</h2>
+    </div>
+    <div class="row">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
