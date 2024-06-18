@@ -1,7 +1,6 @@
 from datetime import datetime
 from django import forms
 from .models import Booking
-from django.core.exceptions import ValidationError
 
 
 class BookingForm(forms.ModelForm):
@@ -13,15 +12,10 @@ class BookingForm(forms.ModelForm):
         fields = ['requested_date','requested_time','guests','message']
         widgets =  {
             'requested_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': datetime.now().date()}),
-            'requested_time': forms.Select(attrs={'class': 'form-control'}),
+            'requested_time': forms.TimeInput(attrs={'class': 'form-control','type': 'time', 'min': "13:00", 'max':'23:00'}),
             'guests': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'How many guests will be coming?'}),
-            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Please write down everything we need to know about your reservation.'})
+            'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Additional Information (Optional)'})
         }
 
-    def clean_to_date(self):
-        data = self.cleaned_data['requested_date']
-        if data < datetime.now():
-            raise forms.ValidationError("'to' date cannot be later than today.")
-        return data
 
     
