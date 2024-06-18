@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect
 from .forms import BookingForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
+@login_required
 def book(request):
     """
-    Booking function
+    If user logged in, shows the booking page.
+    If not, redirects to login page.
     """
     form = BookingForm(data=request.POST)
     if form.is_valid():

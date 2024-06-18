@@ -42,6 +42,7 @@
                             {{ form.remember }} {{ form.remember.label }}
                         </label>
                     </div>
+                    <input type="hidden" name="next" value="{{ request.GET.next }}" />
                     <button type="submit" class="btn btn-primary">{% trans "Log In" %}</button>
                 </form>
 
