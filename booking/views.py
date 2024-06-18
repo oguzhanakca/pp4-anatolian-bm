@@ -15,7 +15,7 @@ def book(request):
     """
 
     #Reservation List
-    reservation_list = Booking.objects.filter(user=request.user).order_by("status", "-created_date")
+    reservation_list = Booking.objects.filter(user=request.user).order_by("-requested_date")
     paginator = Paginator(reservation_list, 5)  # Show 5 reservations per page.
     page_number = request.GET.get("page")
     paginated_list = paginator.get_page(page_number)

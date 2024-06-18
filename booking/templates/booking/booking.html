@@ -9,23 +9,24 @@
     </div>
     <div class="row">
         <h3>Upcoming Reservations</h3>
-        {% if reservation_list %}
+        {% if paginated_list %}
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Status</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Guests</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
+
                 {% for reservation in paginated_list %}
                 <tr>
-                    <td>{{ reservation.status }}</td>
-                    <td>{{ reservation.requested_date }}</td>
+                    <td>{{ reservation.requested_date|date:"d.m.Y" }}</td>
                     <td>{{ reservation.requested_time|date:"H:i" }}</td>
                     <td>{{ reservation.guests }}</td>
+                    <td>{{ reservation.status }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -46,7 +47,7 @@
             </ul>
         </nav>
         {% else %}
-        <h3>No Data</h3>
+        <h3>You didn't book any table yet.</h3>
         {% endif %}
     </div>
     <div class="row">

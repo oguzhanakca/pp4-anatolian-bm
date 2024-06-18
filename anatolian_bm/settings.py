@@ -61,6 +61,7 @@ LOGOUT_REDIRECT_URL = '/'
 PASSWORD_RESET_TIMEOUT = 3600
 
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
