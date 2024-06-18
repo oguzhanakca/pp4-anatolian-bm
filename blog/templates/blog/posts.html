@@ -31,24 +31,6 @@
             <p class="card-text blog-card-author"><small>Author: {{ post.author }}</small></p>
           </div>
         </div>
-        <!-- <div class="col-md-4">
-          <div class="card col-sm-4 blog-card mb-2">
-            <div class="card-body">
-              <div class="image-container">
-                <div class="image-flash">
-                  <p class="author">Author: {{ post.author }}</p>
-                </div>
-              </div>
-              <a href="{% url 'post_detail' post.id %}" class="post-link">
-                <h2 class="card-title">{{ post.title }}</h2>
-                <p class="card_text">{{ post.content | safe }}</p>
-              </a>
-
-              <hr />
-              <p class="card-text text-muted h6">{{ post.created_on}}</p>
-            </div>
-          </div>
-        </div> -->
         {% if forloop.counter|divisibleby:3 %}
       </div>
       <div class="row gap-1">{% endif %} {% endfor %}</div>

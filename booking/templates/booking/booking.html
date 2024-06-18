@@ -4,8 +4,50 @@
 {% block content %}
 <!-- Booking.html starts here -->
 <div class="container-lg">
+    <div class="row text-center">
+        <h2>Reservations</h2>
+    </div>
     <div class="row">
-        <h2>Book Now</h2>
+        <h3>Upcoming Reservations</h3>
+        {% if reservation_list %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Guests</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in paginated_list %}
+                <tr>
+                    <td>{{ reservation.status }}</td>
+                    <td>{{ reservation.requested_date }}</td>
+                    <td>{{ reservation.requested_time|date:"H:i" }}</td>
+                    <td>{{ reservation.guests }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if paginated_list.has_previous %}
+                <li>
+                    <a href="?page={{ paginated_list.previous_page_number }}" class="page-link">
+                        <i class="fa-solid fa-arrow-left"></i></i></a>
+                </li>
+                {% endif %} {% if paginated_list.has_next %}
+                <li>
+                    <a href="?page={{ paginated_list.next_page_number }}" class="page-link">
+                        <i class="fa-solid fa-arrow-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% else %}
+        <h3>No Data</h3>
+        {% endif %}
     </div>
     <div class="row">
         <form method="post">

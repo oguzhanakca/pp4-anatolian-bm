@@ -2,6 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+# Available hours
+HOURS = (
+    ('13:00', '13:00'),
+    ('14:00', '14:00'),
+    ('15:00', '15:00'),
+    ('16:00', '16:00'),
+    ('17:00', '17:00'),
+    ('18:00', '18:00'),
+    ('19:00', '19:00'),
+    ('20:00', '20:00'),
+    ('21:00', '21:00'),
+    ('22:00', '22:00'),
+    ('23:00', '23:00'),
+)
+
 # Booking status
 STATUS = (
     ('Awaiting confirmation', 'Awaiting confirmation'),
@@ -20,7 +35,7 @@ class Booking(models.Model):
     id = models.BigAutoField(primary_key=True)
     created_date = models.DateTimeField(auto_now_add=True)
     requested_date = models.DateField()
-    requested_time = models.TimeField(help_text="Available between 13:00 - 23:00")
+    requested_time = models.TextField(choices=HOURS, default="13:00")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_user")
     status = models.CharField(choices=STATUS, default='Awaiting confirmation')
     guests = models.SmallIntegerField()

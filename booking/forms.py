@@ -12,7 +12,7 @@ class BookingForm(forms.ModelForm):
         fields = ['requested_date','requested_time','guests','message']
         widgets =  {
             'requested_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'min': datetime.now().date()}),
-            'requested_time': forms.TimeInput(attrs={'class': 'form-control','type': 'time', 'min': "13:00", 'max':'23:00'}),
+            'requested_time': forms.Select(attrs={'class': 'form-control'}),
             'guests': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'How many guests will be coming?'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Additional Information (Optional)'})
         }

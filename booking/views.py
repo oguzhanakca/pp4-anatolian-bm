@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import BookingForm
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from .forms import BookingForm
+from .models import Booking
 
 
 
@@ -11,6 +13,14 @@ def book(request):
     If user logged in, shows the booking page.
     If not, redirects to login page.
     """
+
+    #Reservation List
+    reservation_list = Booking.objects.filter(user=request.user).order_by("status", "-created_date")
+    paginator = Paginator(reservation_list, 5)  # Show 5 reservations per page.
+    page_number = request.GET.get("page")
+    paginated_list = paginator.get_page(page_number)
+
+    # Form data
     form = BookingForm(data=request.POST)
     if form.is_valid():
         booking = form.save(commit=False)
@@ -21,7 +31,7 @@ def book(request):
         form = BookingForm()
     
     return render(
-        request, 'booking/booking.html', {'form' : form}
+        request, 'booking/booking.html', {'form' : form, 'reservation_list' : paginator, 'paginated_list' : paginated_list}
     )
 
 def booking_success(request):

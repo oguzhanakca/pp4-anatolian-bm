@@ -2,7 +2,7 @@
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'blog' as blog_url %}
-{% url 'booking' as booking_url %}
+{% url 'book' as book_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -52,7 +52,7 @@
         <div class="navbar-nav">
           <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{% url 'about' %}"
             aria-current="page">About Us</a>
-          <a class="nav-link {% if request.path == booking_url %}active{% endif %}" href="{% url 'booking' %}"
+          <a class="nav-link {% if request.path == book_url %}active{% endif %}" href="{% url 'book' %}"
             aria-current="page">Booking</a>
           <a class="nav-link" href="#" aria-current="page">Shop</a>
           <a class="nav-link {% if request.path == blog_url %}active{% endif %}" href="{% url 'blog' %}"
