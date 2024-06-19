@@ -23,7 +23,6 @@ STATUS = (
     ('Confirmed', 'Confirmed'),
     ('Rejected', 'Rejected'),
     ('Cancelled', 'Cancelled'),
-    ('Expired', 'Expired'),
 )
 
 # Create your models here.
