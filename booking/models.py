@@ -40,6 +40,7 @@ class Booking(models.Model):
     status = models.CharField(choices=STATUS, default='Awaiting')
     guests = models.SmallIntegerField()
     message = models.TextField(blank=True)
+    phone = models.TextField(blank=True)
 
     class Meta:
         ordering = ["-requested_date","requested_time"]

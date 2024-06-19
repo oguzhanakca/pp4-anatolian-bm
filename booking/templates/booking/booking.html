@@ -12,8 +12,8 @@
         <div class="row">
             <h3>Your Booking History</h3>
         </div>
-
         <div class="row booking-history ms-2 mb-2">
+            <!-- Booking History Head -->
             <div class="row booking-history-heading rounded-top py-1">
                 <div class="col-3 booking-history-head">
                     <h5 class="booking-history-head">Date</h5>
@@ -28,7 +28,7 @@
                     <h5 class="booking-history-head">Status</h5>
                 </div>
             </div>
-
+            <!-- Booking History Body -->
             <div class="row booking-history-body rounded-bottom">
                 {% if paginated_list %}
                 {% for reservation in paginated_list %}
@@ -51,7 +51,7 @@
                 </div>
                 {% endif %}
             </div>
-
+            <!-- Booking History Navigation -->
             <div class="row mt-1">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">

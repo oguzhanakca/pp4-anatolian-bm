@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .forms import BookingForm
 from .models import Booking
+from .utils import send_booking_success_email
 
 
 
@@ -26,6 +27,7 @@ def book(request):
         booking = form.save(commit=False)
         booking.user = request.user
         booking.save()
+        send_booking_success_email(request.user, booking)
         return redirect('booking_success')
     else:
         form = BookingForm()
