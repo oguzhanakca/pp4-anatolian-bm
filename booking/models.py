@@ -37,7 +37,7 @@ class Booking(models.Model):
     requested_date = models.DateField()
     requested_time = models.TextField(choices=HOURS, default="13:00")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_user")
-    status = models.CharField(choices=STATUS, default='Awaiting confirmation')
+    status = models.CharField(choices=STATUS, default='Awaiting')
     guests = models.SmallIntegerField()
     message = models.TextField(blank=True)
 

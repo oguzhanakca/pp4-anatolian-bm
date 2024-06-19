@@ -31,7 +31,7 @@ def book(request):
         form = BookingForm()
     
     return render(
-        request, 'booking/booking.html', {'form' : form, 'reservation_list' : paginator, 'paginated_list' : paginated_list}
+        request, 'booking/booking.html', {'form' : form, 'paginated_list' : paginated_list}
     )
 
 def booking_success(request):

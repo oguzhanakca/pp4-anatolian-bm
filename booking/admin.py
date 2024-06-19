@@ -15,4 +15,4 @@ class BookingAdmin(admin.ModelAdmin):
     def name(self, obj):
         return f"{obj.user.first_name} {obj.user.last_name}"
     def time(self, obj):
-        return obj.requested_time.strftime('%H:%m')
+        return obj.requested_time

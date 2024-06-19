@@ -7,11 +7,12 @@
     <div class="row text-center">
         <h2>Booking</h2>
     </div>
+    <!-- Booking History -->
     <div class="row">
         <div class="row">
             <h3>Your Booking History</h3>
         </div>
-        {% if paginated_list %}
+
         <div class="row booking-history ms-2 mb-2">
             <div class="row booking-history-heading rounded-top py-1 align-items-start">
                 <div class="col-3 booking-history-head">
@@ -27,13 +28,15 @@
                     <h5>Status</h5>
                 </div>
             </div>
+
             <div class="row booking-history-body rounded-bottom align-items-start">
+                {% if paginated_list %}
                 {% for reservation in paginated_list %}
                 <div class="col-3 py-1">
                     <h6>{{ reservation.requested_date|date:"d.m.y" }}</h6>
                 </div>
                 <div class="col-3 py-1">
-                    <h6>{{ reservation.requested_time|date:"H:i" }}</h6>
+                    <h6>{{ reservation.requested_time }}</h6>
                 </div>
                 <div class="col-3 py-1">
                     <h6>{{ reservation.guests }}</h6>
@@ -42,7 +45,13 @@
                     <h6>{{ reservation.status }}</h6>
                 </div>
                 {% endfor %}
+                {% else %}
+                <div class="row booking-history-body rounded-bottom align-items-start">
+                    <p class="pt-1">You didn't book any table yet</p>
+                </div>
+                {% endif %}
             </div>
+
             <div class="row">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
@@ -61,14 +70,12 @@
                 </nav>
             </div>
         </div>
-
-        {% else %}
-        <div class="row">
-            <h3>You didn't book any table yet.</h3>
-        </div>
-        {% endif %}
     </div>
+    <!-- Book a Table -->
     <div class="row">
+        <h3>Book a Table</h3>
+    </div>
+    <div class="row mb-2">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
