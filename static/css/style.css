@@ -110,6 +110,13 @@
   padding: 0;
 }
 
+.booking-prev-button, .booking-next-button {
+  background-color: #3c2f2f;
+  color: #fff4e6;
+}
 
-
+.booking-prev-button:hover, .booking-next-button:hover {
+  background-color: #be9b7b;
+  color: #4b3832;
+}
 
