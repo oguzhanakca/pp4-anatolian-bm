@@ -5,49 +5,67 @@
 <!-- Booking.html starts here -->
 <div class="container-lg">
     <div class="row text-center">
-        <h2>Reservations</h2>
+        <h2>Booking</h2>
     </div>
     <div class="row">
-        <h3>Upcoming Reservations</h3>
+        <div class="row">
+            <h3>Your Booking History</h3>
+        </div>
         {% if paginated_list %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Guests</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-
+        <div class="row booking-history ms-2 mb-2">
+            <div class="row booking-history-heading rounded-top py-1 align-items-start">
+                <div class="col-3 booking-history-head">
+                    <h5>Date</h5>
+                </div>
+                <div class="col-3 booking-history-head">
+                    <h5>Time</h5>
+                </div>
+                <div class="col-3 booking-history-head">
+                    <h5>Guests</h5>
+                </div>
+                <div class="col-3 booking-history-head">
+                    <h5>Status</h5>
+                </div>
+            </div>
+            <div class="row booking-history-body rounded-bottom align-items-start">
                 {% for reservation in paginated_list %}
-                <tr>
-                    <td>{{ reservation.requested_date|date:"d.m.Y" }}</td>
-                    <td>{{ reservation.requested_time|date:"H:i" }}</td>
-                    <td>{{ reservation.guests }}</td>
-                    <td>{{ reservation.status }}</td>
-                </tr>
+                <div class="col-3 py-1">
+                    <h6>{{ reservation.requested_date|date:"d.m.y" }}</h6>
+                </div>
+                <div class="col-3 py-1">
+                    <h6>{{ reservation.requested_time|date:"H:i" }}</h6>
+                </div>
+                <div class="col-3 py-1">
+                    <h6>{{ reservation.guests }}</h6>
+                </div>
+                <div class="col-3 py-1">
+                    <h6>{{ reservation.status }}</h6>
+                </div>
                 {% endfor %}
-            </tbody>
-        </table>
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if paginated_list.has_previous %}
-                <li>
-                    <a href="?page={{ paginated_list.previous_page_number }}" class="page-link">
-                        <i class="fa-solid fa-arrow-left"></i></i></a>
-                </li>
-                {% endif %} {% if paginated_list.has_next %}
-                <li>
-                    <a href="?page={{ paginated_list.next_page_number }}" class="page-link">
-                        <i class="fa-solid fa-arrow-right"></i></a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
+            </div>
+            <div class="row">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        {% if paginated_list.has_previous %}
+                        <li>
+                            <a href="?page={{ paginated_list.previous_page_number }}" class="page-link">
+                                <i class="fa-solid fa-arrow-left"></i></i></a>
+                        </li>
+                        {% endif %} {% if paginated_list.has_next %}
+                        <li>
+                            <a href="?page={{ paginated_list.next_page_number }}" class="page-link">
+                                <i class="fa-solid fa-arrow-right"></i></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
         {% else %}
-        <h3>You didn't book any table yet.</h3>
+        <div class="row">
+            <h3>You didn't book any table yet.</h3>
+        </div>
         {% endif %}
     </div>
     <div class="row">

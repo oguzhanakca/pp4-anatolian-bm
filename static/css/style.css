@@ -85,3 +85,23 @@
   font-weight: 500;
   padding-bottom: 2rem;
 }
+
+.booking-history {
+  width: 100%;
+}
+
+.booking-history-heading {
+  background-color: 	#3c2f2f;
+  color: #fff4e6;
+  width: 100%;
+}
+
+.booking-history-body {
+  background-color: #4b3832;
+  color: #fff4e6;
+  width: 100%
+}
+
+
+
+
