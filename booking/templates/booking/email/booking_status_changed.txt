@@ -1,0 +1,16 @@
+Hi {{ user.username }},
+
+The resturant has changed the status of your booking. 
+
+Booking details:
+Date: {{ booking.requested_date|date:"j F Y, l" }}
+Time: {{ booking.requested_time }}
+Guests: {{ booking.guests }}
+Message: {{ booking.message }}
+Phone Number: {{ booking.phone }}
+Status : {{ booking.status }}
+
+You will be notified via email if anything changes with your booking status.
+
+Best regards,
+Anatolian B&M

@@ -21,11 +21,8 @@ HOURS = (
 STATUS = (
     ('Awaiting', 'Awaiting'),
     ('Confirmed', 'Confirmed'),
-    ('Rejected', 'Rejected'),
     ('Cancelled', 'Cancelled'),
 )
-
-# Create your models here.
 
 class Booking(models.Model):
     """
@@ -36,10 +33,23 @@ class Booking(models.Model):
     requested_date = models.DateField()
     requested_time = models.TextField(choices=HOURS, default="13:00")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_user")
-    status = models.CharField(choices=STATUS, default='Awaiting')
+    status = models.CharField(choices=STATUS, default='Pending')
     guests = models.SmallIntegerField()
     message = models.TextField(blank=True)
     phone = models.TextField(blank=True)
+    changed_fields = []
+
+    def save(self, *args, **kwargs):
+        if self.pk is not None:
+            old_instance = Booking.objects.get(pk=self.pk)
+            self.changed_fields = []
+            for field in self._meta.fields:
+                field_name = field.name
+                old_value = getattr(old_instance, field_name)
+                new_value = getattr(self, field_name)
+                if old_value != new_value:
+                    self.changed_fields.append(field_name)
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ["-requested_date","requested_time"]
