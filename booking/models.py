@@ -19,7 +19,7 @@ HOURS = (
 
 # Booking status
 STATUS = (
-    ('Awaiting', 'Awaiting'),
+    ('Pending', 'Pending'),
     ('Confirmed', 'Confirmed'),
     ('Cancelled', 'Cancelled'),
 )
