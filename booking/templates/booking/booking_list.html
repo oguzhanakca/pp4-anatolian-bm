@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-lg">
+    <div class="row">
+        <h2>Booking List</h2>
+    </div>
+
+    <div class="row booking-history ms-2 mb-2">
+        <!-- Booking List Head -->
+        <div class="row booking-history-heading rounded-top py-1">
+            <div class="col booking-history-head">
+                <h5 class="booking-history-head"><a href="?order={{ new_order_date }}">Date</a></h5>
+            </div>
+            <div class="col booking-history-head">
+                <h5 class="booking-history-head"><a href="?order={{ new_order_time }}">Time</a></h5>
+            </div>
+            <div class="col booking-history-head">
+                <h5 class="booking-history-head"><a href="?order={{ new_order_guests }}">Guests</a></h5>
+            </div>
+            <div class="col booking-history-head">
+                <h5 class="booking-history-head"><a href="?order={{ new_order_status }}">Status</a></h5>
+            </div>
+        </div>
+        <!-- Booking List Body -->
+        <div class="row booking-history-body rounded-bottom">
+            {% if booking_list %}
+            {% for booking in booking_list %}
+            <div class="col-3 booking-history-data py-1">
+                <h6 class="booking-history-data">{{ booking.requested_date|date:"d.m.y" }}</h6>
+            </div>
+            <div class="col-3 booking-history-data py-1">
+                <h6 class="booking-history-data">{{ booking.requested_time }}</h6>
+            </div>
+            <div class="col-3 booking-history-data py-1">
+                <h6 class="booking-history-data">{{ booking.guests }}</h6>
+            </div>
+            <div class="col-3 booking-history-data py-1">
+                <h6 class="booking-history-data">{{ booking.status }}</h6>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="row booking-history-body rounded-bottom align-items-start">
+                <p class="pt-1">You didn't book any table yet</p>
+            </div>
+            {% endif %}
+        </div>
+        <!-- Booking History Navigation -->
+        <div class="row mt-1">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if booking_list.has_previous %}
+                    <li>
+                        <a href="?page={{ booking_list.previous_page_number }}"
+                            class="page-link rounded-circle booking-prev-button">
+                            <i class="fa-solid fa-arrow-left"></i></i></a>
+                    </li>
+                    {% endif %} {% if booking_list.has_next %}
+                    <li>
+                        <a href="?page={{ booking_list.next_page_number }}"
+                            class="page-link rounded-circle booking-next-button">
+                            <i class="fa-solid fa-arrow-right"></i></a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,9 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Booking(models.Model):
+    """
+    The table booking model
+    """
 
-# Available hours
-HOURS = (
+    # Available hours
+    HOURS = (
     ('13:00', '13:00'),
     ('14:00', '14:00'),
     ('15:00', '15:00'),
@@ -15,19 +19,15 @@ HOURS = (
     ('21:00', '21:00'),
     ('22:00', '22:00'),
     ('23:00', '23:00'),
-)
+    )
 
-# Booking status
-STATUS = (
+    # Booking status
+    STATUS = (
     ('Pending', 'Pending'),
     ('Confirmed', 'Confirmed'),
     ('Cancelled', 'Cancelled'),
-)
-
-class Booking(models.Model):
-    """
-    The table booking model
-    """
+    )
+    
     id = models.BigAutoField(primary_key=True)
     created_date = models.DateTimeField(auto_now_add=True)
     requested_date = models.DateField()
