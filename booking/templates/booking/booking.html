@@ -10,22 +10,26 @@
     <!-- Booking History -->
     <div class="row">
         <div class="row">
+            {% if user.is_staff %}
+            <h3>Booking List</h3>
+            {% else %}
             <h3>Your Booking History</h3>
+            {% endif %}
         </div>
         <div class="row booking-history ms-2 mb-2">
             <!-- Booking History Head -->
             <div class="row booking-history-heading rounded-top py-1">
                 <div class="col-3 booking-history-head">
-                    <h5 class="booking-history-head">Date</h5>
+                    <h5 class="booking-history-head"><a href="?order={{ new_order_date }}">Date</a></h5>
                 </div>
                 <div class="col-3 booking-history-head">
-                    <h5 class="booking-history-head">Time</h5>
+                    <h5 class="booking-history-head"><a href="?order={{ new_order_time }}">Time</a></h5>
                 </div>
                 <div class="col-3 booking-history-head">
-                    <h5 class="booking-history-head">Guests</h5>
+                    <h5 class="booking-history-head"><a href="?order={{ new_order_guests }}">Guests</a></h5>
                 </div>
                 <div class="col-3 booking-history-head">
-                    <h5 class="booking-history-head">Status</h5>
+                    <h5 class="booking-history-head"><a href="?order={{ new_order_status }}">Status</a></h5>
                 </div>
             </div>
             <!-- Booking History Body -->
