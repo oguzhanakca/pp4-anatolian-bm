@@ -125,4 +125,28 @@
   color: #4b3832;
 }
 
+.blog-titles-head {
+  color: #3c2f2f;
+}
+
+.blog-titles-body {
+  color: #854442;
+  font-weight: 500;
+}
+
+.blog-background {
+  background-color: #be9b7b;
+}
+
+.title-name, .title-last-comment-head {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title-data {
+  border: 1px solid #be9b7b;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 

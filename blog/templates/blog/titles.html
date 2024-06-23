@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-lg blog-titles p-0 mt-2">
+    {% for title in titles %}
+    <div class="row m-0 mb-2 title-data">
+        <div class="row justify-content-between blog-titles-head m-0 p-0">
+            <h5 class="col-6"><a href="{% url 'discounts' %}" class="title-name">{{ title.name }}</a></h5>
+            <h6 class="col-6 text-end"><a href="" class="title-last-comment-head">Last Comment</a></h6>
+        </div>
+        <hr>
+        <div class="row justify-content-between blog-titles-body m-0 p-0">
+            <p class="title-description col-6">{{ title.description }}</p>
+            <p class="title-last-comment-body col-6 text-end">1.2.5</p>
+        </div>
+    </div>
+
+    {% endfor %}
+
+
+</div>
+{% endblock %}

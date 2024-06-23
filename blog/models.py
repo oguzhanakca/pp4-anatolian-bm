@@ -4,11 +4,29 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Hidden"), (1, "Published"))
 CATEGORY = ((0, "Restaurant"), (1, "Market"), (2, "General"))
 
-# Create your models here.
+class Title(models.Model):
+    """
+    The model of main titles
+    """
+    id = models.BigAutoField(primary_key=True)
+    name = models.CharField(max_length=100, unique=True)
+    description = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return f"{self.name} - {self.description}"
+
 class Post(models.Model):
+    """
+    The user post model
+    """
     id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
+    blog_title = models.ForeignKey(Title, on_delete=models.CASCADE, related_name="blog_post_title")
     category = models.IntegerField(choices=CATEGORY)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -23,6 +41,9 @@ class Post(models.Model):
     
 
 class Comment(models.Model):
+    """
+    The user comment model
+    """
     id = models.BigAutoField(primary_key=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
