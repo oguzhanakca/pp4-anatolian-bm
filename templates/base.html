@@ -1,8 +1,10 @@
 {% load static %}
+{% load booking_tags %}
+{% load blog_tags %}
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
-{% url 'blog' as blog_url %}
-{% url 'book' as book_url %}
+{% blog_urls as blog_urls %}
+{% booking_urls as booking_urls %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -52,11 +54,10 @@
         <div class="navbar-nav">
           <a class="nav-link {% if request.path == about_url %}active{% endif %}" href="{% url 'about' %}"
             aria-current="page">About Us</a>
-          <a class="nav-link {% if request.path == book_url %}active{% endif %}" href="{% url 'book' %}"
+          <a class="nav-link {% if booking_urls %}active{% endif %}" href="{% url 'book' %}"
             aria-current="page">Booking</a>
           <a class="nav-link" href="#" aria-current="page">Shop</a>
-          <a class="nav-link {% if request.path == blog_url %}active{% endif %}" href="{% url 'blog' %}"
-            aria-current="page">Blog</a>
+          <a class="nav-link {% if blog_urls %}active{% endif %}" href="{% url 'blog' %}" aria-current="page">Blog</a>
           {% if user.is_authenticated %}
           <a class="nav-link" aria-current="page" href="{% url 'account_logout' %}">Sign Out</a>
           {% else %}
