@@ -12,19 +12,14 @@ def title(request):
     Display the blog homepage
     """
     titles = Title.objects.all()
-    latest_discount_comment = Comment.objects.filter(post__blog_title__name="Discounts").order_by("-created_at")
-    latest_event_comment = Comment.objects.filter(post__blog_title__name="Events").order_by("-created_at")
-    latest_feedback_comment = Comment.objects.filter(post__blog_title__name="Feedbacks").order_by("-created_at")
 
     return render(
         request,
         "blog/titles.html",
-        {"titles": titles,
-         "latest_discount_comment": latest_discount_comment,
-         "latests_event_comment": latest_event_comment,
-         "latests_feedback_comment": latest_feedback_comment,},
+        {"titles": titles},
     )
 
+@login_required
 def discount(request):
     """
     Display the discounts page

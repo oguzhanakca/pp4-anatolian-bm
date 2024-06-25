@@ -6,6 +6,8 @@
   color: #3c2f2f;
 }
 
+/* Navbar and Footer */
+
 .home-nav-foot {
   background-color: #be9b7b;
 }
@@ -52,15 +54,7 @@
   font-size: 28px;
 }
 
-.blog-card {
-  background-color: #3c2f2f;
-  color: #fff4e6;
-  padding: 0;
-  overflow: hidden;
-  white-space: nowrap; /* Don't forget this one */
-  text-overflow: ellipsis;
-}
-
+/* Signup And Login */
 .errorlist {
   list-style: none;
   background-color: #fff4e6;
@@ -80,12 +74,14 @@
   color: rgb(15, 68, 88);
 }
 
+/* About Page Carousel */
 .carousel-card {
   margin: auto;
   font-weight: 500;
   padding-bottom: 2rem;
 }
 
+/* Booking page history */
 .booking-history {
   width: 100%;
 }
@@ -125,6 +121,8 @@
   color: #4b3832;
 }
 
+/* Blog */
+
 .blog-titles-head {
   color: #3c2f2f;
 }
@@ -141,6 +139,24 @@
 .title-name, .title-last-comment-head {
   text-decoration: none;
   color: inherit;
+}
+
+.title-image {
+  height: 194px;
+}
+
+.title-name {
+  font-size: 1.5rem;
+}
+
+.titles-container {
+  min-height: 30vw;
+}
+
+.title-card {
+  min-width: 294px;
+  background-color: #be9b7b;
+  color: #3c2f2f;
 }
 
 .title-data {

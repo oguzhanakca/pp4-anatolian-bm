@@ -10,14 +10,14 @@ class Title(models.Model):
     """
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100, unique=True)
-    description = models.CharField(max_length=200)
+    image =  models.ImageField(upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         ordering = ["name"]
 
     def __str__(self):
-        return f"{self.name} - {self.description}"
+        return self.name
 
 class Post(models.Model):
     """

@@ -3,20 +3,41 @@
 {% load humanize %}
 {% block content %}
 <div class="container-lg blog-titles p-0 mt-2">
-    {% for post in ordered_posts %}
-    <div class="row m-0 mb-2 title-data">
-        <div class="row justify-content-between m-0 p-0">
-            <p class="col-6">{{ post.get_category_display }}</p>
-            <p class="col-6 text-end">{{ post.created_at }}</p>
+    <div class="row blog-titles-head justify-content-between mx-1">
+        <div class="d-inline col">
+            <p class="d-inline">Title</p>
         </div>
-        <div class="row justify-content-between blog-titles-head m-0 p-0">
-            <h5 class="col-6"><a href="" class="title-name">{{ post.title }}</a></h5>
-            <h6 class="col-6 text-end"><a href="" class="title-last-comment-head">Last Comment</a></h6>
+        <div class="d-inline col">
+            <p class="d-inline">Author</p>
+        </div>
+        <div class="d-inline col">
+            <p class="d-inline">Posted</p>
+        </div>
+        <div class="d-inline col">
+            <p class="d-inline">Last</p>
+        </div>
+    </div>
+    {% for post in ordered_posts %}
+    <div class="row mx-1 mb-2 title-data">
+        <div class="row justify-content-between m-0 p-0">
+            <div class="row">
+                <p class="col-6"><a href="" class="title-name">
+                        {% if post.get_category_display == "Market" %}
+                        <i class="fa-solid fa-store"></i>
+                        {% elif post.get_category_display == "Restaurant" %}
+                        <i class="fa-solid fa-utensils"></i>
+                        {% else %}<i class="fa-solid fa-comment"></i>{% endif %}
+                        {{ post.title }}</a></p>
+                <p class="col-6 text-end title-last-comment-head">{{ post.author.username }}</p>
+            </div>
+
         </div>
         <hr>
         <div class="row justify-content-between blog-titles-body m-0 p-0">
-            <p class="title-description col-6">Author : {{ post.author.username }}</p>
-            <p class="title-last-comment-body col-6 text-end">{{ post }}</p>
+            <p class="title-description col-6">{{ post.created_at|naturaltime }}</p>
+            <p class="title-last-comment-body col-6 text-end">{% if post.latest_comment_date %}
+                post.latest_comment_date|naturaltime
+                {% else %} No Comment {% endif %}</p>
         </div>
     </div>
 
