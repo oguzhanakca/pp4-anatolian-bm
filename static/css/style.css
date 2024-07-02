@@ -123,46 +123,14 @@
 
 /* Blog */
 
-.blog-titles-head {
-  color: #3c2f2f;
+.blog-posts {
+  background-color: 	#854442;
+  color:#fff4e6;
 }
 
-.blog-titles-body {
-  color: #854442;
-  font-weight: 500;
-}
-
-.blog-background {
-  background-color: #be9b7b;
-}
-
-.title-name, .title-last-comment-head {
-  text-decoration: none;
-  color: inherit;
-}
-
-.title-image {
-  height: 194px;
-}
-
-.title-name {
-  font-size: 1.5rem;
-}
-
-.titles-container {
-  min-height: 30vw;
-}
-
-.title-card {
-  min-width: 294px;
-  background-color: #be9b7b;
-  color: #3c2f2f;
-}
-
-.title-data {
-  border: 1px solid #be9b7b;
-  border-radius: 10px;
-  padding: 5px;
+.post-info {
+  font-size: 14px;
+  color: aqua;
 }
 
 

@@ -15,25 +15,33 @@
   </div>
 
   <div class="row">
+
+  </div>
+
+  <div class="row">
     <!-- Blog Entries Column -->
     <div class="col-12">
-      <div class="row gap-1">
-        {% for post in post_list %}
-        <div class="card col-sm-4 blog-card">
-          <div class="card-header d-flex justify-content-between align-baseline align-items-center blog-card-header ">
-            <p class="card-text blog-card-author mb-0"><small>{{ post.get_category_display }}</small></p>
-            <p class="card-text blog-card-author"><small>Last comment : {{ post.updated_at | naturaltime }}</small></p>
-          </div>
-          <img src="{% static 'images/blog.jpg' %}" class="card-img-top rounded-0" alt="Restaurant Feedback">
-          <div class="card-body">
-            <h5 class="card-title blog-card-title">{{ post.title }}</h5>
-            <p class="card-text blog-card-text">{{ post.content | safe}}</p>
-            <p class="card-text blog-card-author"><small>Author: {{ post.author }}</small></p>
+      <div class="row">
+        <div class="d-flex justify-content-between mb-1">
+          <h5>Blog Posts</h5>
+          <a href="" class="btn btn-primary">Create a Post</a>
+        </div>
+      </div>
+      <div class="row mx-auto gap-1 col-12">
+        {% for post in posts %}
+        <div class="card blog-card blog-posts p-0">
+          <div class="card-body p-2">
+            <div class="row">
+              <h5 class="card-title blog-card-title">{{ post.title }}</h5>
+            </div>
+            <div class="d-flex justify-content-between">
+              <p class="card-text p-0 post-info">Author: {{ post.author }}</p>
+              <p class="card-text p-0 post-info">{{ post.created_at|naturaltime }}</p>
+            </div>
           </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
+        {% endfor %}
       </div>
-      <div class="row gap-1">{% endif %} {% endfor %}</div>
     </div>
   </div>
   {% if is_paginated %}
