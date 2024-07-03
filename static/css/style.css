@@ -124,13 +124,27 @@
 /* Blog */
 
 .blog-posts {
-  background-color: 	#854442;
-  color:#fff4e6;
+  background-color: #be9b7b;
+  color:#4b3832;
 }
 
 .post-info {
   font-size: 14px;
-  color: aqua;
+  color: #3c2f2f;
+}
+
+.post-link {
+  text-decoration: none;
+  color:inherit;
+}
+
+.post-details {
+  font-size: 1rem;
+  color: #3c2f2f;
+}
+
+.post-title {
+  color:#854442 ;
 }
 
 

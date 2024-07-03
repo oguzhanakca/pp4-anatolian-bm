@@ -20,21 +20,13 @@ def posts(request):
 @login_required
 def post_detail(request, id):
     """
-    Display an individual :model:`blog.Post`.
-
-    **Context**
-
-    ``post``
-        An instance of :model:`blog.Post`.
-
-    **Template:**
-
-    :template:`blog/post_detail.html`
+    Display the post.
     """
 
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, id=id)
-    comments = Comment.objects.filter(post_id=post.id).order_by("created_at")
+    # Approved comments
+    comments = Comment.objects.filter(post_id=post.id, approved=True).order_by("created_at")
 
     return render(
         request,
