@@ -168,6 +168,7 @@
   display: none;
 }
 
-.comment-form > p > textarea {
+.comment-form > p > textarea, .comment-form > p > textarea:focus  {
   background-color: #be9b7b;
+  border: 0px;
 }
