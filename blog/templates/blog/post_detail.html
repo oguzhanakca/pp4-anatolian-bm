@@ -3,45 +3,63 @@
 {% load humanize %}
 {% block content %}
 
-<div class="masthead">
-  <div class="container">
-    <div class="row g-0">
-      <div class="col-sm-6 masthead-text justify-content-between w-100 post-owner">
+<div class="container-fluid h-100 post-details-bg">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col card mb-4 mt-3 mx-auto owners-post">
+        <div class="card-body">
+          <h3 class="card-title post-details">Author : {{ post.author }} | {{ post.created_at|naturaltime }}</h3>
+          {{ post.content | safe }}
+        </div>
       </div>
+    </div>
+    {% if comments %}
+    {% for comment in comments %}
+    <div class="row">
+      <div class="col card mb-2 comments">
+        <div class="card-body">
+          <h3 class="comment-author">{{ comment.author }} | {{ comment.created_at|naturaltime }}</h3>
+          <p class="mb-0 comment-body">{{ comment.body | safe }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="row mt-1">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          {% if comments.has_previous %}
+          <li>
+            <a href="?page={{ comments.previous_page_number }}" class="page-link rounded-circle booking-prev-button">
+              <i class="fa-solid fa-arrow-left"></i></i></a>
+          </li>
+          {% endif %} {% if comments.has_next %}
+          <li>
+            <a href="?page={{ comments.next_page_number }}" class="page-link rounded-circle booking-next-button">
+              <i class="fa-solid fa-arrow-right"></i></a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+    {% else %}
+    <div class="row">
+      <div class="col card mb-2 comments">
+        <div class="card-body">
+          <p class="mb-0 comment-body">Nobody has commented on this post yet.</p>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="row mb-1">
+      <form method="POST" class="comment-form px-0">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col card mb-4 mt-3 left top">
-      <div class="card-head">
 
-
-      </div>
-      <div class="card-body">
-        <h3 class="card-title post-details">{{ post.author }} | {{ post.created_at|naturaltime }}</h3>
-        <!-- The post content goes inside the card-text. -->
-        <!-- Use the | safe filter inside the template tags -->
-        <p class="card-text">{{ post.content | safe }}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% for comment in comments %}
-
-<div class="container">
-  <div class="row">
-    <div class="col card mb-4 mt-3 left top">
-      <div class="card-body">
-        <!-- The post content goes inside the card-text. -->
-        <!-- Use the | safe filter inside the template tags -->
-        <p class="card-text">{{ comment.body | safe }}</p>
-      </div>
-    </div>
-  </div>
-</div>
-{% endfor %}
 
 {% endblock content %}

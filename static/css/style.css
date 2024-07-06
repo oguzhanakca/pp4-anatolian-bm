@@ -140,11 +140,34 @@
 
 .post-details {
   font-size: 1rem;
-  color: #3c2f2f;
 }
 
 .post-title {
   color:#854442 ;
 }
 
+.owners-post {
+  background-color: 	#854442;
+  color: #fff4e6;
+}
 
+
+.post-details-bg {
+  background-color: 	#3c2f2f;
+}
+
+.comments {
+  background-color: #be9b7b;
+}
+
+.comment-author, .comment-body {
+  font-size: 1rem;
+}
+
+.comment-form > p > label {
+  display: none;
+}
+
+.comment-form > p > textarea {
+  background-color: #be9b7b;
+}
