@@ -36,9 +36,6 @@ class CustomSignupForm(SignupForm):
     )
 
     def save(self, request):
-
-        # Ensure you call the parent class's save.
-        # .save() returns a User object.
         user = super(CustomSignupForm, self).save(request)
         user.username = self.cleaned_data['username']
         user.email = self.cleaned_data['email']
@@ -47,8 +44,6 @@ class CustomSignupForm(SignupForm):
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
         user.save()
-        # Add your own processing here.
-        # You must return the original result.
         return user
     
     def clean_email(self):
