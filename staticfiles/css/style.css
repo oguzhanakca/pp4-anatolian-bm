@@ -6,6 +6,8 @@
   color: #3c2f2f;
 }
 
+/* Navbar and Footer */
+
 .home-nav-foot {
   background-color: #be9b7b;
 }
@@ -52,15 +54,7 @@
   font-size: 28px;
 }
 
-.blog-card {
-  background-color: #3c2f2f;
-  color: #fff4e6;
-  padding: 0;
-  overflow: hidden;
-  white-space: nowrap; /* Don't forget this one */
-  text-overflow: ellipsis;
-}
-
+/* Signup And Login */
 .errorlist {
   list-style: none;
   background-color: #fff4e6;
@@ -80,8 +74,101 @@
   color: rgb(15, 68, 88);
 }
 
+/* About Page Carousel */
 .carousel-card {
   margin: auto;
   font-weight: 500;
   padding-bottom: 2rem;
+}
+
+/* Booking page history */
+.booking-history {
+  width: 100%;
+}
+
+.booking-history-heading {
+  background-color: 	#3c2f2f;
+  color: #fff4e6;
+  width: 100%;
+}
+
+.booking-history-body {
+  background-color: #4b3832;
+  color: #fff4e6;
+  width: 100%
+}
+
+.booking-history-head {
+  padding: 0;
+}
+
+.booking-history-head > a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.booking-history-data {
+  padding: 0;
+}
+
+.booking-prev-button, .booking-next-button {
+  background-color: #3c2f2f;
+  color: #fff4e6;
+}
+
+.booking-prev-button:hover, .booking-next-button:hover {
+  background-color: #be9b7b;
+  color: #4b3832;
+}
+
+/* Blog */
+
+.blog-posts {
+  background-color: #be9b7b;
+  color:#4b3832;
+}
+
+.post-info {
+  font-size: 14px;
+  color: #3c2f2f;
+}
+
+.post-link {
+  text-decoration: none;
+  color:inherit;
+}
+
+.post-details {
+  font-size: 1rem;
+}
+
+.post-title {
+  color:#854442 ;
+}
+
+.owners-post {
+  background-color: 	#854442;
+  color: #fff4e6;
+}
+
+
+.post-details-bg {
+  background-color: 	#3c2f2f;
+}
+
+.comments {
+  background-color: #be9b7b;
+}
+
+.comment-author, .comment-body {
+  font-size: 1rem;
+}
+
+.comment-form > p > label {
+  display: none;
+}
+
+.comment-form > p > textarea, .comment-form > p > textarea:focus  {
+  background-color: #be9b7b;
+  border: 0px;
 }
