@@ -10,5 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include("blog.urls"), name='blog-urls'),
     path("booking/", include("booking.urls"), name='booking-urls'),
+    path("shop/", include("shop.urls"), name='shop-urls'),
     path('summernote/', include("django_summernote.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

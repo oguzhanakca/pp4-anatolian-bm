@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+def shop(request):
+    """
+    Display Shop homepage
+    """
+
+    return render(request,"shop/shop.html")
