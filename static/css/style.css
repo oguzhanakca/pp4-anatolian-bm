@@ -172,3 +172,27 @@
   background-color: #be9b7b;
   border: 0px;
 }
+
+/* Shop */
+.monthly-discounts-link {
+  text-decoration: none;
+  color: red;
+}
+
+.carousel-info-card {
+  color: black;
+  padding: 0;
+  bottom: 0rem;
+}
+
+/* Hide Carousel after SM breakpoint */
+@media (min-width: 576px) {
+  #most-sellers-slider {
+     display: none;
+   }
+}
+@media (max-width: 576px) {
+  #most-sellers {
+     display: none;
+   }
+}
