@@ -6,14 +6,17 @@
     <h2 class="text-center"><a href="#" class="monthly-discounts-link">Check Discounts</a></h2>
     <h3>Today's Special</h3>
     <div id="most-sellers-slider" class="row">
-        <div id="most-sellers-carousel" class="carousel slide">
+        <div id="most-sellers-carousel" class="carousel slide" data-bs-interval="5000" data-bs-touch="true"
+            data-bs-ride="carousel">
             <div class="carousel-inner">
                 {% for most_seller in most_sellers %}
                 <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <img src="{{ most_seller.image.url }}" class="d-block w-100" alt="{{ most_seller.name }}">
-                    <div class="carousel-caption d-md-block carousel-info-card mx-auto">
-                        <h5><span class="carousel-name">{{ most_seller.name }}</span></h5>
-                        <p><span class="carousel-price">{{ most_seller.price }} €</span></p>
+                    <div class="card col-sm-4 col-lg-2">
+                        <img src="{{ most_seller.image.url  }}" class="card-img-top" alt="{[most_seller.name]}">
+                        <div class="card-body product-info-background">
+                            <h5 class="card-title product-card-name">{{ most_seller.name }}</h5>
+                            <p class="card-text product-card-price">{{ most_seller.price }} €</p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -34,7 +37,7 @@
         {% for product in products %}
         <div class="card col-sm-4 col-lg-2">
             <img src="{{ product.image.url  }}" class="card-img-top" alt="{[product.name]}">
-            <div class="card-body">
+            <div class="card-body product-info-background">
                 <h5 class="card-title product-card-name">{{ product.name }}</h5>
                 <p class="card-text product-card-price">{{ product.price }} €</p>
             </div>
