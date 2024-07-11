@@ -1,6 +1,6 @@
 from django.db import models
 
-CATEGORY = ((0, "Fruit and Vegetable"), (1, "Meat"), (2, "Seafood"),(3, "Frozen Products"), (4, "Drink"), (5, "Bakery"), (6, "Dairy"))
+CATEGORY = ((0, "Fruit and Vegetable"), (1, "Meat"), (2, "Seafood"),(3, "Ice Cream"), (4, "Drink"), (5, "Bakery"), (6, "Dairy"))
 
 class Product(models.Model):
     """

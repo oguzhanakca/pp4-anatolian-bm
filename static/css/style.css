@@ -185,6 +185,11 @@
   bottom: 0rem;
 }
 
+.product-info-background {
+  background-color:#854442;
+  color: #fff4e6;
+}
+
 /* Hide Carousel after SM breakpoint */
 @media (min-width: 576px) {
   #most-sellers-slider {
