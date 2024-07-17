@@ -10,7 +10,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField(null=True, blank=True)
     category = models.IntegerField(choices=CATEGORY)
-    image = models.ImageField(upload_to="product_images/")
+    image = models.ImageField(upload_to="product_images/", null=False, blank=False, default="No Image")
     price = models.DecimalField(max_digits=10,decimal_places=2,default=0.0)
     stock = models.IntegerField(default=0)
     sold = models.PositiveBigIntegerField(default=0)

@@ -7,10 +7,13 @@
 <div class="container-lg gap-1">
   <div class="row my-3">
     <div class="input-group">
-      <input type="text" class="form-control border-0 bg-body-secondary rounded" placeholder="Search Post"
-        aria-label="Search Post" aria-describedby="button-addon2">
-      <button class="btn btn-outline-success rounded-circle border-0" type="button" id="button-addon2"><i
-          class="fa-solid fa-circle-right"></i></button>
+      <form method="get" class="w-100" action="{% url 'blog' %}">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="post-search" placeholder="Search Post" aria-label="Search Post"
+            aria-describedby="button-addon2">
+          <button class="btn btn-success" type="button" id="button-addon2">Search</button>
+        </div>
+      </form>
     </div>
   </div>
 

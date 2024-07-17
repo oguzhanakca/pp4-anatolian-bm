@@ -11,7 +11,12 @@ def posts(request):
     Display all posts
     """
     # Published posts
-    posts = Post.objects.filter(status=1)
+    all_posts = Post.objects.filter(status=1)
+    search_query = request.GET.get('post-search')
+    if search_query:
+        posts = all_posts.filter(title__icontains=search_query)
+    else:
+        posts = all_posts 
     paginator = Paginator(posts, 15)
     page_number = request.GET.get("page")
     paginated_posts = paginator.get_page(page_number)
@@ -19,7 +24,8 @@ def posts(request):
     return render(
         request, 
         "blog/posts.html", 
-        {"posts": paginated_posts},
+        {"posts": paginated_posts,
+         "query":search_query},
     )
 
 @login_required

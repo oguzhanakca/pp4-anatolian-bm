@@ -185,16 +185,19 @@
   bottom: 0rem;
 }
 
-.carousel-name {
+.product-info-background {
+  background-color:#854442;
+  color: #fff4e6;
 }
-
-.carousel-price {
-}
-
 
 /* Hide Carousel after SM breakpoint */
 @media (min-width: 576px) {
   #most-sellers-slider {
+     display: none;
+   }
+}
+@media (max-width: 576px) {
+  #most-sellers {
      display: none;
    }
 }
