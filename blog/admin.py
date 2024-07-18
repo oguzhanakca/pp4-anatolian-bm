@@ -4,8 +4,8 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('id','title', 'status','created_at')
-    search_fields = ['title','content']
+    list_display = ('title', 'status','created_at','author')
+    search_fields = ['title','author__username']
     list_filter = ('status','created_at')
 
 # Register your models here.
