@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
     'django_summernote',
     'widget_tweaks',
     'home',
