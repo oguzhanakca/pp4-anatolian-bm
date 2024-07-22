@@ -190,19 +190,56 @@
   bottom: 0rem;
 }
 
-.product-info-background {
-  background-color:#854442;
-  color: #fff4e6;
+.product-card {
+  width: 100%;
 }
 
-/* Hide Carousel after SM breakpoint */
+.product-card-info {
+  text-decoration: none;
+  color: #3c2f2f;
+}
+
+.product-card-price {
+  color: #854442;
+}
+
+.product-info-background {
+  background-color:#f1efed;
+  color:#3c2f2f;
+}
+
+
+
+/* SM Breakpoint */
 @media (min-width: 576px) {
   #most-sellers-slider {
      display: none;
    }
+  #latest-products-slider {
+    display: none;
+  }
+  .product-card {
+    width: 32%;
+  }
 }
+
+/* MD Breakpoint */
 @media (max-width: 576px) {
   #most-sellers {
      display: none;
    }
+}
+
+/* LG Breakpoint */
+@media (min-width: 769px) {
+  .product-card {
+    width: 23%;
+  }
+}
+
+/* XL Breakpoint */
+@media (min-width: 993px) {
+  .product-card {
+    width: 19%;
+  }
 }

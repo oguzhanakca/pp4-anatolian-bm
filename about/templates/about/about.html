@@ -141,14 +141,14 @@
                         </div>
                         <div class="form-group d-flex align-items-end">
                             <label class="fs-3 me-1" for="{{ form.email.id_for_label }}">Email:</label>
-                            {{ form.email|add_class:"form-control }}
+                            {{ form.email|add_class:"form-control" }}
                             {% if form.email.errors %}
                             <div class="invalid-feedback">{{ form.email.errors }}</div>
                             {% endif %}
                         </div>
                         <div class="form-group align-items-end text-start mb-1">
                             <label class="fs-3" for="{{ form.message.id_for_label }}">Message:</label>
-                            {{ form.message|add_class:"form-control }}
+                            {{ form.message|add_class:"form-control" }}
                             {% if form.message.errors %}
                             <div class="invalid-feedback">{{ form.message.errors }}</div>
                             {% endif %}

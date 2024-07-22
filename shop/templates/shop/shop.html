@@ -3,47 +3,115 @@
 {% block content %}
 
 <div class="container-lg">
-    <h2 class="text-center"><a href="#" class="monthly-discounts-link">Check Discounts</a></h2>
-    <h3>Today's Special</h3>
-    <div id="most-sellers-slider" class="row">
-        <div id="most-sellers-carousel" class="carousel slide" data-bs-interval="5000" data-bs-touch="true"
-            data-bs-ride="carousel">
-            <div class="carousel-inner">
-                {% for most_seller in most_sellers %}
-                <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-                    <div class="card col-sm-4 col-lg-2">
-                        <img src="{{ most_seller.image.url  }}" class="card-img-top" alt="{[most_seller.name]}">
-                        <div class="card-body product-info-background">
-                            <h5 class="card-title product-card-name">{{ most_seller.name }}</h5>
-                            <p class="card-text product-card-price">{{ most_seller.price }} €</p>
+    <div class="most-sellers mt-1">
+        <h3>Most Sellers</h3>
+        <div id="most-sellers-slider" class="row">
+            <div id="most-sellers-carousel" class="carousel slide" data-bs-interval="5000" data-bs-touch="true"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for most_seller in most_sellers %}
+                    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                        <div class="card col-sm-4 col-lg-2">
+                            <img src="{{ most_seller.image.url  }}" class="card-img-top" alt="{[most_seller.name]}">
+                            <div class="card-body product-info-background">
+                                <h5 class="card-title product-card-name">{{ most_seller.name }}</h5>
+                                <p class="card-text product-card-price">{{ most_seller.price }} €</p>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#most-sellers-carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#most-sellers-carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#most-sellers-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#most-sellers-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </div>
+        <div class="row mx-auto row-gap-1" id="most-sellers">
+            {% for product in most_sellers %}
+            <div class="card mx-1 px-0 product-card">
+                <a href="" class="h-100"><img src="{{ product.image.url }}" class="card-img-top"
+                        alt="{{product.name}}"></a>
+
+                <div class="card-body product-info-background h-100">
+                    <a href="" class="product-card-info">
+                        <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                    </a>
+                    <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+                </div>
+
+            </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="row mx-1" id="most-sellers">
-        {% for product in products %}
-        <div class="card col-sm-4 col-lg-2">
-            <img src="{{ product.image.url  }}" class="card-img-top" alt="{[product.name]}">
-            <div class="card-body product-info-background">
-                <h5 class="card-title product-card-name">{{ product.name }}</h5>
-                <p class="card-text product-card-price">{{ product.price }} €</p>
+    <div class="latest-products mt-1">
+        <h3>Latest Products</h3>
+        <div id="latest-products-slider" class="row">
+            <div id="latest-products-carousel" class="carousel slide" data-bs-interval="5000" data-bs-touch="true"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for product in latest_products %}
+                    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+                        <div class="card col-sm-4 col-lg-2">
+                            <img src="{{ product.image.url  }}" class="card-img-top" alt="{[product.name]}">
+                            <div class="card-body product-info-background">
+                                <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                                <p class="card-text product-card-price">{{ product.price }} €</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#latest-products-carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#latest-products-carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+        </div>
+        <div class="row mx-auto row-gap-1" id="latest-products">
+            {% for product in latest_products %}
+            <div class="card mx-1 px-0 product-card">
+                <a href="" class="h-100"><img src="{{ product.image.url }}" class="card-img-top"
+                        alt="{{product.name}}"></a>
+
+                <div class="card-body product-info-background h-100">
+                    <a href="" class="product-card-info">
+                        <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                    </a>
+                    <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- <div class="row mx-auto row-gap-1">
+        {% for product in products %}
+        <div class="card mx-1 px-0 product-card">
+            <a href="" class="h-100"><img src="{{ product.image.url }}" class="card-img-top" alt="{{product.name}}"></a>
+
+            <div class="card-body product-info-background h-100">
+                <a href="" class="product-card-info">
+                    <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                </a>
+                <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+            </div>
+
         </div>
         {% endfor %}
-    </div>
+    </div> -->
 
 </div>
 
