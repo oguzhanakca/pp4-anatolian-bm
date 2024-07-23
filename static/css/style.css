@@ -145,6 +145,7 @@
 
 .post-details {
   font-size: 1rem;
+  color: aqua;
 }
 
 .post-title {
@@ -163,6 +164,10 @@
 
 .comments {
   background-color: #be9b7b;
+}
+
+.comment-header {
+  color: #fff4e6;
 }
 
 .comment-author, .comment-body {

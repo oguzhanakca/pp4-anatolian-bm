@@ -29,7 +29,7 @@ def book(request):
     user = request.user
     if user.is_staff:
         bookings = Booking.objects.all().order_by(order)
-        paginator = Paginator(bookings, 15)  # Show 15 bookings per page.
+        paginator = Paginator(bookings, 10)  # Show 15 bookings per page.
     else:
         bookings = Booking.objects.filter(user=user).order_by(order)
         paginator = Paginator(bookings, 5)  # Show 5 bookings per page.

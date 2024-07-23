@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row post-filter">
 
   </div>
 
@@ -30,7 +30,7 @@
           <a href="{% url 'create_post' %}" class="btn create-post-button">Create a Post</a>
         </div>
       </div>
-      <div class="row mx-auto gap-1 col-12">
+      <div class="row mx-auto gap-1 col-12 my-1">
         {% for post in posts %}
         <div class="card blog-card blog-posts p-0">
           <div class="card-body p-2">

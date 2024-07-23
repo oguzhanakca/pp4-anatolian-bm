@@ -51,10 +51,11 @@
     </div>
     {% endif %}
     <div class="row mb-1">
+      <h4 class="comment-header">Send your comment</h4>
       <form method="POST" class="comment-form px-0">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-info">Submit</button>
       </form>
     </div>
   </div>

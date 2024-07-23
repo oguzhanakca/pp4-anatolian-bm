@@ -10,7 +10,7 @@ def shop(request):
     """
 
     products = Product.objects.filter(on_sale=True)
-    most_sellers = products.order_by("-sold")[:6]
-    latest_products = products.order_by("-created_at")[:6]
+    most_sellers = products.order_by("-sold")[:12]
+    latest_products = products.order_by("-created_at")[:12]
 
     return render(request,"shop/shop.html",{"products": products,"most_sellers":most_sellers,"latest_products":latest_products})
