@@ -3,6 +3,12 @@
 {% block content %}
 
 <div class="container-lg">
+    <div class="row mx-auto my-2">
+        <a href="" class="shop-header mx-auto">
+            <h2 class="abril-fatface-regular">CHECK ALL PRODUCTS</h2>
+        </a>
+    </div>
+    <!-- Most Sellers -->
     <div class="most-sellers mt-1">
         <h3>Most Sellers</h3>
         <div id="most-sellers-slider" class="row">
@@ -14,8 +20,9 @@
                         <div class="card col-sm-4 col-lg-2">
                             <img src="{{ most_seller.image.url  }}" class="card-img-top" alt="{[most_seller.name]}">
                             <div class="card-body product-info-background">
-                                <h5 class="card-title product-card-name">{{ most_seller.name }}</h5>
-                                <p class="card-text product-card-price">{{ most_seller.price }} €</p>
+                                <h5 class="card-title product-card-name oswald-400">{{ most_seller.name }}</h5>
+                                <p class="card-text product-card-price pt-sans-bold">{{ most_seller.price }} €
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -41,15 +48,16 @@
 
                 <div class="card-body product-info-background h-100">
                     <a href="" class="product-card-info">
-                        <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                        <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
                     </a>
-                    <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+                    <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
                 </div>
 
             </div>
             {% endfor %}
         </div>
     </div>
+    <!-- Latest Products -->
     <div class="latest-products my-1">
         <h3>Latest Products</h3>
         <div id="latest-products-slider" class="row">
@@ -61,8 +69,8 @@
                         <div class="card col-sm-4 col-lg-2">
                             <img src="{{ product.image.url  }}" class="card-img-top" alt="{[product.name]}">
                             <div class="card-body product-info-background">
-                                <h5 class="card-title product-card-name">{{ product.name }}</h5>
-                                <p class="card-text product-card-price">{{ product.price }} €</p>
+                                <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
+                                <p class="card-text product-card-price pt-sans-bold">{{ product.price }} €</p>
                             </div>
                         </div>
                     </div>
@@ -88,9 +96,9 @@
 
                 <div class="card-body product-info-background h-100">
                     <a href="" class="product-card-info">
-                        <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                        <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
                     </a>
-                    <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+                    <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
                 </div>
 
             </div>
@@ -106,7 +114,7 @@
                 <a href="" class="product-card-info">
                     <h5 class="card-title product-card-name">{{ product.name }}</h5>
                 </a>
-                <h6 class="card-text product-card-price">{{ product.price }} €</h6>
+                <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
             </div>
 
         </div>

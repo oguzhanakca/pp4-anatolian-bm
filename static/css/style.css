@@ -1,9 +1,49 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Oswald:wght@200..700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
 .vollkorn-font {
   font-family: "Vollkorn", serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   color: #3c2f2f;
+}
+
+.abril-fatface-regular {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oswald-400 {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-sans-regular {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-sans-bold {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-sans-regular-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-sans-bold-italic {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
 }
 
 /* Navbar and Footer */
@@ -195,6 +235,12 @@
   bottom: 0rem;
 }
 
+.shop-header {
+  text-decoration: none;
+  color:#20333a;
+  width: fit-content;
+}
+
 .product-card {
   width: 100%;
 }
@@ -206,6 +252,7 @@
 
 .product-card-price {
   color: #854442;
+  font-size: 20px;
 }
 
 .product-info-background {
