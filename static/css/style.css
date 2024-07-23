@@ -280,6 +280,9 @@
   #most-sellers {
      display: none;
    }
+  #latest-products {
+    display: none;
+  }
 }
 
 /* LG Breakpoint */
