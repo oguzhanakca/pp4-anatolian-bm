@@ -2,7 +2,11 @@
 {% load static %}
 {% block content %}
 
-<div class="container-lg">
+<div class="container-lg py-2">
+    <h2 class="text-center">ALL PRODUCTS</h2>
+    <div class="row filter">
+        Filters
+    </div>
     <div class="row mx-auto row-gap-1">
         {% for product in all_products %}
         <div class="card mx-1 px-0 product-card">
