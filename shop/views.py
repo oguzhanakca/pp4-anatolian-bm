@@ -23,12 +23,36 @@ def product_detail(request, id):
     # Get Product
     queryset = Product.objects.all()
     product = get_object_or_404(queryset, id=id)
-    # Get or Create Shopping Cart
-    cart = Cart.objects.get_or_create(user=request.user)
-    # Increase Cart Product Quantity or Add it to Cart
+    
     if request.method == "POST":
-        cart_item = CartItem.objects.get_or_create(cart=cart, product=product)
-        cart_item.quantity +=1
+        # Get or Create Shopping Cart
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        # Increase Cart Product Quantity or Add it to Cart
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+        if not created:
+            cart_item.quantity += 1
+        else:
+            cart_item.quantity = 1
         cart_item.save()
 
+        return redirect("add_cart_success")
+
     return render(request, "shop/product_detail.html", {"product": product})
+
+@login_required
+def add_cart_success(request):
+    """
+    Displays when a product successfully added to cart
+    """
+
+    return render(request,"shop/add_cart_success.html")
+
+@login_required
+def all_products(request):
+    """
+    Displays all products
+    """
+
+    all_products = Product.objects.all()
+
+    return render(request,"shop/all_products.html",{"all_products":all_products})

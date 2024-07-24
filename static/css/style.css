@@ -260,10 +260,32 @@
   color:#3c2f2f;
 }
 
-.add-cart {
-  width: fit-content;
+.product-name {
+  font-size: 1.5rem;
 }
 
+.product-category {
+  font-size: 20px;
+}
+
+.product-description {
+  color: midnightblue;
+  font-size: 20px;
+}
+
+.product-price {
+  color: rgb(186, 15, 238);
+  font-size: 2rem;
+}
+
+.quantity-info {
+  color: black;
+  font-weight: 500;
+}
+
+.add-cart-button {
+  font-weight: 500;
+}
 
 
 /* SM Breakpoint */
