@@ -3,15 +3,18 @@
 {% block content %}
 
 <div class="container-lg py-2">
-    <div class="row">
-        <h5 class="product-category mb-3">Category : {{ product.get_category_display }}</h5>
-
-        <div class="row w-100 p-0 mx-auto">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="row h-100 align-items-center">
+        <div class="col-md-6">
+            <div class="row w-100 p-0 mx-auto">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            </div>
         </div>
-        <div class="row w-100">
+
+
+        <div class="col-md-6">
             <h2 class="product-name">{{ product.name }}</h2>
             <p class="product-description">{{ product.description }}</p>
+            <h5 class="product-category mb-3">Category : {{ product.get_category_display }}</h5>
             <h4 class="product-price">{{ product.price }} €</h4>
 
             <div class="row">
@@ -21,8 +24,25 @@
                     <button type="submit" class="btn btn-warning mt-1 rounded-pill add-cart-button">Add to Cart</button>
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <h3>Related Products</h3>
+        <div class="row mx-auto row-gap-1">
+            {% for product in related_products %}
+            <div class="card mx-1 px-0 product-card">
+                <a href="{% url 'product_detail' id=product.id %}" class="h-100"><img src="{{ product.image.url }}"
+                        class="card-img-top" alt="{{product.name}}"></a>
 
+                <div class="card-body product-info-background h-100">
+                    <a href="{% url 'product_detail' product.id}" class="product-card-info">
+                        <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                    </a>
+                    <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
+                </div>
 
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

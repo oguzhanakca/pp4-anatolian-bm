@@ -23,6 +23,7 @@ def product_detail(request, id):
     # Get Product
     queryset = Product.objects.all()
     product = get_object_or_404(queryset, id=id)
+    related_products = queryset.filter(category=product.category).exclude(id=product.id)[:5]
     
     if request.method == "POST":
         # Get or Create Shopping Cart
@@ -37,7 +38,7 @@ def product_detail(request, id):
 
         return redirect("add_cart_success")
 
-    return render(request, "shop/product_detail.html", {"product": product})
+    return render(request, "shop/product_detail.html", {"product": product,"related_products":related_products})
 
 @login_required
 def add_cart_success(request):

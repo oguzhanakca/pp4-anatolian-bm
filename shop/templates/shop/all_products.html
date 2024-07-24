@@ -2,6 +2,24 @@
 {% load static %}
 {% block content %}
 
-<h2>ALL PRODUCTS PAGE</h2>
+<div class="container-lg">
+    <div class="row mx-auto row-gap-1">
+        {% for product in all_products %}
+        <div class="card mx-1 px-0 product-card">
+            <a href="{% url 'product_detail' id=product.id %}" class="h-100"><img src="{{ product.image.url }}"
+                    class="card-img-top" alt="{{product.name}}"></a>
+
+            <div class="card-body product-info-background h-100">
+                <a href="{% url 'product_detail' product.id}" class="product-card-info">
+                    <h5 class="card-title product-card-name">{{ product.name }}</h5>
+                </a>
+                <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 
 {% endblock %}
