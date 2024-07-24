@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-lg py-2">
+    <div class="row">
+        <div class="row w-100 p-0 mx-auto">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="row w-100">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <h6>Category : {{ product.get_category_display }}</h6>
+            <h4>{{ product.price }} €</h4>
+            <form action="{% url 'product_detail' product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .models import Product
+from .models import Product, Cart, CartItem, Order, OrderItem
 
 @login_required
 def shop(request):
@@ -20,7 +20,15 @@ def product_detail(request, id):
     """
     Displays Product Detail page
     """
+    # Get Product
     queryset = Product.objects.all()
     product = get_object_or_404(queryset, id=id)
+    # Get or Create Shopping Cart
+    cart = Cart.objects.get_or_create(user=request.user)
+    # Increase Cart Product Quantity or Add it to Cart
+    if request.method == "POST":
+        cart_item = CartItem.objects.get_or_create(cart=cart, product=product)
+        cart_item.quantity +=1
+        cart_item.save()
 
-    return render(request, "shop/product-detail.html", {"product": product})
+    return render(request, "shop/product_detail.html", {"product": product})
