@@ -237,8 +237,12 @@
 
 .shop-header {
   text-decoration: none;
-  color:blue;
-  width: fit-content;
+  font-size: 2rem;
+  color:#fff4e6;
+  background-color: #3c2f2f;
+  border: 1px solid #4b3832;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .product-card {
@@ -285,6 +289,14 @@
 
 .add-cart-button {
   font-weight: 500;
+}
+
+.filter-button {
+  background-color: #4b3832;
+  border: 1px solid #4b3832;
+  border-radius: 5px;
+  color: #fff4e6;
+  padding: 5px;
 }
 
 
