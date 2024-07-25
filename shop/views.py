@@ -65,5 +65,9 @@ def all_products(request):
         if filter and filter != "99":
             all_products = all_products.filter(category=filter)
         all_products = all_products.order_by(order)
+
+    paginator = Paginator(all_products,10)
+    page_number = request.GET.get("page")
+    paginated_list = paginator.get_page(page_number)
         
-    return render(request,"shop/all_products.html",{"all_products":all_products, "form": form})
+    return render(request,"shop/all_products.html",{"all_products":paginated_list, "form": form})

@@ -17,7 +17,7 @@ def posts(request):
         posts = all_posts.filter(title__icontains=search_query)
     else:
         posts = all_posts 
-    paginator = Paginator(posts, 15)
+    paginator = Paginator(posts, 7)
     page_number = request.GET.get("page")
     paginated_posts = paginator.get_page(page_number)
 
