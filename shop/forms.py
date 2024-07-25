@@ -5,7 +5,7 @@ class OrderAndFilterForm(forms.Form):
     """
     Order and Filter Options for Products
     """
-    FILTER_OPTIONS = [("all", 'All')] + list(Product.CATEGORY)
+    FILTER_OPTIONS = [("99", 'All')] + list(Product.CATEGORY)
     ORDER_OPTIONS = [
         ('name', 'Name (Ascending)'),
         ('-name', 'Name (Descending)'),

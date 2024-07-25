@@ -58,15 +58,12 @@ def all_products(request):
     form = OrderAndFilterForm(request.GET or None)
     all_products = Product.objects.filter(on_sale=True)
 
+
     if form.is_valid():
         order = form.cleaned_data["order_options"]
         filter = form.cleaned_data["filter_options"]
-        if filter and filter != 5:
+        if filter and filter != "99":
             all_products = all_products.filter(category=filter)
-    else:
-        print(form.errors)
-
-    all_products = all_products.order_by(order)
-
-
+        all_products = all_products.order_by(order)
+        
     return render(request,"shop/all_products.html",{"all_products":all_products, "form": form})
