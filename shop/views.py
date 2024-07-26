@@ -65,7 +65,7 @@ def all_products(request):
         search = form.cleaned_data["search"]
         print(type(filter))
         
-        if filter and filter != 99:
+        if filter and filter != "99":
             all_products = all_products.filter(category=filter)
         if search:
             all_products = all_products.filter(name__icontains=search)
@@ -84,4 +84,5 @@ def my_cart(request):
     """
     cart = get_object_or_404(Cart, user=request.user)
 
-    return render(request, "shop/shopping_cart.html", {"cart":cart})
+
+    return render(request, "shop/my_cart.html", {"cart":cart})
