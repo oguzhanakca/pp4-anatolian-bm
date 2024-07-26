@@ -315,6 +315,13 @@
   font-weight: 500;
 }
 
+/* Cart */
+.cart {
+  border: 1px solid #be9b7b;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 
 /* SM Breakpoint */
 @media (min-width: 576px) {
