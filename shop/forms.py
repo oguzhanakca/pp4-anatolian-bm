@@ -14,3 +14,4 @@ class OrderAndFilterForm(forms.Form):
     ]
     order_options = forms.ChoiceField(choices=ORDER_OPTIONS)
     filter_options = forms.ChoiceField(choices=FILTER_OPTIONS)
+    search = forms.CharField(required=False, max_length=100)

@@ -4,38 +4,43 @@
 
 <div class="container-lg py-2">
     <h2 class="text-center abril-fatface-regular">ALL PRODUCTS</h2>
-    <div class="row g-2 align-items-center mt-2">
-        <!-- Filter -->
-        <div>
-
-        </div>
-    </div>
-    <!-- Products Order and Filter -->
+    <!-- Order, Filter and Search Form -->
     <div class="row align-items-center my-2">
-        <form method="get" class="d-flex gap-2">
+        <form method="get" class="d-flex flex-wrap gap-2">
             <!-- Filter -->
-            <div>
-                <!-- <label for="{{ form.filter_options.id_for_label }}" class="form-label align-self-end">Filter</label> -->
-                <select name="{{ form.filter_options.name }}" id="{{ form.filter_options.id_for_label }}" class="form-select">
-                    {% for value, label in form.filter_options.field.choices %}
-                    <option value="{{ value }}" {% if form.filter_options.value == value %} selected {% endif %}>
-                        {{label}}</option>
-                    {% endfor %}
-                </select>
+             <div class="d-flex gap-2">
+                <div>
+                    <!-- <label for="{{ form.filter_options.id_for_label }}" class="form-label align-self-end">Filter</label> -->
+                    <select name="{{ form.filter_options.name }}" id="{{ form.filter_options.id_for_label }}" class="form-select">
+                        {% for value, label in form.filter_options.field.choices %}
+                        <option value="{{ value }}" {% if form.filter_options.value == value %} selected {% endif %}>
+                            {{label}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <!-- Order -->
+                <div>
+                    <!-- <label for="{{ form.order_options.id_for_label }}" class="form-label align-self-end">Order By</label> -->
+                    <select name="{{ form.order_options.name }}" id="{{ form.order_options.id_for_label }}" class="form-select">
+                        {% for value, label in form.order_options.field.choices %}
+                        <option value="{{ value }}" {% if form.order_options.value == value %} selected {% endif %}>
+                            {{label}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+             </div>
+             <!-- Search Area -->
+            <div class="d-flex gap-2">
+                <!-- <label for="{{ form.search.id_for_label }}">Search:</label> -->
+                <input type="text" name="{{ form.search.name }}" id="{{ form.search.id_for_label }}" class="form-control" 
+                value="{% if search %}{{ form.search.value }}{% endif %}">
+                <button type="submit" class="filter-button">Apply</button>
             </div>
-            <!-- Order -->
-            <div>
-                <!-- <label for="{{ form.order_options.id_for_label }}" class="form-label align-self-end">Order By</label> -->
-                <select name="{{ form.order_options.name }}" id="{{ form.order_options.id_for_label }}" class="form-select">
-                    {% for value, label in form.order_options.field.choices %}
-                    <option value="{{ value }}" {% if form.order_options.value == value %} selected {% endif %}>
-                        {{label}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <button type="submit" class="filter-button">Apply</button>
+            
         </form>
     </div>
+
+    <!-- Products -->
     <div class="row mx-auto row-gap-1">
         {% for product in all_products %}
         <div class="card mx-1 px-0 product-card">
@@ -58,13 +63,19 @@
             <ul class="pagination justify-content-center">
                 {% if all_products.has_previous %}
                 <li>
-                    <a href="?page={{ all_products.previous_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}"
+                    <a href="?page={{ all_products.previous_page_number }}
+                    {% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}
+                    {% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}
+                    {% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-prev-button">
                         <i class="fa-solid fa-arrow-left"></i></i></a>
                 </li>
                 {% endif %} {% if all_products.has_next %}
                 <li>
-                    <a href="?page={{ all_products.next_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}"
+                    <a href="?page={{ all_products.next_page_number }}
+                    {% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}
+                    {% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}
+                    {% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-next-button">
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </li>

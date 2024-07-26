@@ -62,8 +62,12 @@ def all_products(request):
     if form.is_valid():
         order = form.cleaned_data["order_options"]
         filter = form.cleaned_data["filter_options"]
+        search = form.cleaned_data["search"]
+        
         if filter and filter != "99":
             all_products = all_products.filter(category=filter)
+        if search:
+            all_products = all_products.filter(name__icontains=search)
         all_products = all_products.order_by(order)
 
     paginator = Paginator(all_products,10)
