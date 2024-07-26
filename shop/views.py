@@ -82,7 +82,7 @@ def my_cart(request):
     Displays users shopping cart
     """
     cart, created = Cart.objects.get_or_create(user=request.user)
-    products = CartItem.objects.filter(cart=cart)
+    cart_item = CartItem.objects.filter(cart=cart)
 
 
-    return render(request, "shop/my_cart.html", {"cart":cart,"products":products})
+    return render(request, "shop/my_cart.html", {"cart":cart,"cart_item":cart_item})

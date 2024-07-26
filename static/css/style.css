@@ -322,6 +322,15 @@
   padding: 5px;
 }
 
+.cart-titles {
+  color: #3c2f2f;
+  font-weight: 500;
+}
+
+.cart-products > a {
+  text-decoration: none;
+  color: #4b3832;
+}
 
 /* SM Breakpoint */
 @media (min-width: 576px) {

@@ -39,7 +39,7 @@ class Cart(models.Model):
         return f"{self.user.username}'s Cart Id : {self.id}"
 
     def get_total_cost(self):
-        return sum(product.get_cost() for product in self.products.all())
+        return sum(product.get_cost() for product in self.items.all())
     
 class CartItem(models.Model):
     """

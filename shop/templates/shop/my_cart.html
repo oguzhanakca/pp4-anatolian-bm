@@ -4,26 +4,38 @@
 
 <div class="container-lg">
     <div class="row my-2">
-        <h2>My Cart</h2>
+        <h2 class="cart-header">My Cart</h2>
     </div>
-    <div class="cart col-12">
-        <div class="d-flex justify-content-between align-items-end border-bottom w-100">
-            <p class="col-4">Product</p>
-            <p class="col-4">Quantity</p>
-            <p class="col-4">Price(Each)</p>
+    <!-- Cart -->
+    <div class="cart col-12 mb-2">
+        <div class="d-flex justify-content-between align-items-end w-100 cart-titles px-2">
+            <p class="col-3">Product</p>
+            <p class="col-3 text-center">Quantity</p>
+            <p class="col-3 text-center">Price</p>
+            <p class="col-3 text-end">Total</p>
         </div>
-        <div class="cart-products">
-            {% for product in products %}
-            <div class="row col-12">
-                <p class="col-4">{{ product.name }}</p>
-                <p class="col-4">{{ product.quantity }}</p>
-                <p class="col-4">{{ product.price}}</p>
+        <div class="px-2 w-100">
+            {% if cart_item %}
+            {% for item in cart_item %}
+            <div class="cart-products row align-items-center border-top py-2">
+                
+                <a class="col-3">{{ item.product.name }}</a>
+                <a class="col-3 text-center">{{ item.quantity }}</a>
+                <a class="col-3 text-center">{{ item.product.price}} €</a>
+                <a class="col-3 text-end">{{ item.get_cost }} €</a>   
             </div>
             {% endfor %}
-
+            {% else %}
+            <h4>There is no product in cart.</h4>
+            {% endif %}
         </div>
     </div>
-    
+    <!-- Total -->
+    {% if cart_item %}
+    <div class="d-flex flex-row-reverse">
+        <p class="border-top">Total : {{ cart.get_total_cost }} €</p>
+    </div>
+    {% endif %}
 </div>
 
 
