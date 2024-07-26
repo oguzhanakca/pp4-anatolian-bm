@@ -6,7 +6,7 @@ class Product(models.Model):
     """
     Product Model
     """
-    CATEGORY = (("0", "Fruit and Vegetable"), ("1", "Meat"), ("2", "Seafood"),("3", "Ice Cream"), ("4", "Drink"), ("5", "Bakery"), ("6", "Dairy"))
+    CATEGORY = ((0, "Fruit and Vegetable"), (1, "Meat"), (2, "Seafood"),(3, "Ice Cream"), (4, "Drink"), (5, "Bakery"), (6, "Dairy"))
 
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255, unique=True)

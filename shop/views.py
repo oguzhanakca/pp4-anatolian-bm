@@ -63,8 +63,9 @@ def all_products(request):
         order = form.cleaned_data["order_options"]
         filter = form.cleaned_data["filter_options"]
         search = form.cleaned_data["search"]
+        print(type(filter))
         
-        if filter and filter != "99":
+        if filter and filter != 99:
             all_products = all_products.filter(category=filter)
         if search:
             all_products = all_products.filter(name__icontains=search)
@@ -75,3 +76,12 @@ def all_products(request):
     paginated_list = paginator.get_page(page_number)
         
     return render(request,"shop/all_products.html",{"all_products":paginated_list, "form": form})
+
+@login_required
+def my_cart(request):
+    """
+    Displays users shopping cart
+    """
+    cart = get_object_or_404(Cart, user=request.user)
+
+    return render(request, "shop/shopping_cart.html", {"cart":cart})

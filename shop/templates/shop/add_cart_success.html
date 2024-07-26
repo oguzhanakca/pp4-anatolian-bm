@@ -3,8 +3,11 @@
 {% block content %}
 
 <div class="container-lg">
-    <h2>Product added to cart successfully</h2>
-    <h3>You can specify the quantity you wish to purchase in your shopping cart.</h3>
+    <div class="text-center mt-3">
+        <h2 class="add-cart-message mb-3">Product added to cart successfully</h2>
+        <h3 class="add-cart-info mb-3">You can specify the quantity you wish to purchase in your shopping cart.</h3>
+        <a href="{% url 'my_cart' %}" class="nav-cart btn rounded-pill">View My Cart</a>
+    </div>
 </div>
 
 

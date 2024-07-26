@@ -9,3 +9,7 @@ def shop_urls(context):
     request= context["request"]
     shop_url_pattern = '/shop/'
     return request.path.startswith(shop_url_pattern)
+
+@register.filter()
+def to_int(value):
+    return int(value)

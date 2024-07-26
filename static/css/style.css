@@ -299,6 +299,22 @@
   padding: 0px 5px;
 }
 
+.add-cart-message {
+  color:#3c2f2f;
+}
+
+.add-cart-info {
+  color: #4b3832;
+}
+
+.nav-cart {
+  text-decoration: none;
+  border: 1px solid #854442;
+  background-color: #854442;
+  color: #fff4e6;
+  font-weight: 500;
+}
+
 
 /* SM Breakpoint */
 @media (min-width: 576px) {
