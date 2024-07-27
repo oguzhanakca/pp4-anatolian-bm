@@ -237,8 +237,12 @@
 
 .shop-header {
   text-decoration: none;
-  color:#20333a;
-  width: fit-content;
+  font-size: 2rem;
+  color:#fff4e6;
+  background-color: #3c2f2f;
+  border: 1px solid #4b3832;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .product-card {
@@ -260,7 +264,97 @@
   color:#3c2f2f;
 }
 
+.product-name {
+  font-size: 1.5rem;
+}
 
+.product-category {
+  font-size: 20px;
+}
+
+.product-description {
+  color: midnightblue;
+  font-size: 20px;
+}
+
+.product-price {
+  color: rgb(186, 15, 238);
+  font-size: 2rem;
+}
+
+.quantity-info {
+  color: black;
+  font-weight: 500;
+}
+
+.add-cart-button {
+  font-weight: 500;
+}
+
+.filter-button {
+  background-color: #4b3832;
+  border: 1px solid #4b3832;
+  border-radius: 5px;
+  color: #fff4e6;
+  padding: 0px 5px;
+}
+
+.add-cart-message {
+  color:#3c2f2f;
+}
+
+.add-cart-info {
+  color: #4b3832;
+}
+
+.nav-cart {
+  text-decoration: none;
+  border: 1px solid #854442;
+  background-color: #854442;
+  color: #fff4e6;
+  font-weight: 500;
+}
+
+/* Cart */
+.cart, .update-cart {
+  border: 1px solid #be9b7b;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.cart-titles {
+  color: #3c2f2f;
+  font-weight: 500;
+}
+
+.cart-products > a {
+  text-decoration: none;
+  color: #4b3832;
+  font-weight: 500;
+}
+
+.quantity-name {
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 500;
+  color: #3c2f2f;
+}
+
+.quantity-input {
+  width: 3.5rem;
+  text-align: center;
+}
+
+.cart-info {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.update-cart-button {
+  max-height: 35px;
+}
 
 /* SM Breakpoint */
 @media (min-width: 576px) {
@@ -280,6 +374,9 @@
   #most-sellers {
      display: none;
    }
+  #latest-products {
+    display: none;
+  }
 }
 
 /* LG Breakpoint */
