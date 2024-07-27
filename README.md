@@ -169,11 +169,12 @@ The footer contains all social media links that the business has so the user can
   - Create Post : Logged in users can create post.
   - Update Post : Users can edit and delete their own posts.
   - Post Details : Users can read the full post. They can also comment.
-  - Shop : Users can view 
-  - Contact us allows the user to send us a DM if the are registered, or they can contact us from the displayed email and phone number or visit the address listed.
-  - Login / Logout allows users to login to make bookings, view, edit, and delete bookings
-  - Register allows the user to regiser so they can use the booking system
-  - 404 error page to display if a 404 error is raised
+  - Shop : Users can view products.
+  - All Products : Users can view, filter and search all products.
+  - Login : Allows users to login with their account.
+  - Register : Allows the user to regiser so they can use features
+  - Password Recovery : Allows users to reset their password once they forgot.
+  - 404 : Error page to display if a 404 error is raised
 
 #### Database
 
@@ -187,83 +188,74 @@ The footer contains all social media links that the business has so the user can
 
 ##### User Model
 The User Model contains the following:
-- user_id
-- password
-- last_login
-- is_superuser
+- id
 - username
+- password
+- email
 - first_name
 - last_name
-- email
-- is_staff
-- is_active
 - date_joined
-
-##### FoodItem Model
-The FoodItem Model contains the following:
-- food_id
-- food_name
-- description
-- price
-- available
-
-##### DrinkItem Model
-The DrinkItem Model contains the following:
-- drink_id
-- drink_name
-- description
-- price
-- available
-
-##### Table Model
-The Table Model contains the following:
-- table_id (PrimaryKey)
-- table_name
-- max_seats
-- available
-
-
-##### Booking Model
-The Booking Model contains the following:
-- booking_id (PrimaryKey)
-- created_date
-- requested_date
-- requested_time
-- table (ForeignKey)
-- guest (ForeignKey)
-- seats
-- guest_count
+- is_superuser
 
 ##### Post Model
 The Post Model contains the following:
+- id
 - title
-- post_id (PrimaryKey)
-- author (ForeignKey)
-- created_date
-- updated_date
+- author (Foreign Key : User)
+- category
 - content
-- featured_image
-- excerpt
-- slug
+- created_at
 - status
+- updated_at
 
 ##### Comment Model
 The Comment Model contains the following:
-- post (ForeignKey)
-- name
-- email
+- id
+- post (Foreign Key : Post)
+- author (Foreign Key : User)
 - body
-- created_date
 - approved
-- Meta: created_on
+- created_at
 
-##### ContactUs Model
-The ContactUs Model contains the following:
-- contact_id (PrimaryKey)
-- name (ForeignKey)
-- email (ForeignKey)
-- phone (ForeignKey)
-- body
+##### Booking Model
+The Booking Model contains the following:
+- id
+- created_date
+- requested_date
+- requested_time
+- user (Foreign Key : User)
+- status
+- guests
+- message
+- phone
+
+##### Product Model
+The Product Model contains the following:
+- id
+- name
+- description
+- category
+- image
+- price
+- stock
+- sold
+- on_sale
+- created_at
+- updated_at
+
+##### Cart Model
+The Cart Model contains the following:
+- id
+- user (Foreign Key : User)
+- created_at
+- updated_at
+
+##### CartItem Model
+The CartItem Model contains the following:
+- id
+- cart (Foreign Key : Cart)
+- product (Foreign Key : Product)
+- quantity
 
 
 ### Wireframes
