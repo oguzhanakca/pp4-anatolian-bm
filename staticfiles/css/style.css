@@ -112,10 +112,6 @@
   color: rgb(15, 68, 88);
 }
 
-.forgot-password, .forgot-signup {
-  color: blue;
-  font-weight: 500;
-}
 
 /* About Page Carousel */
 .carousel-card {
