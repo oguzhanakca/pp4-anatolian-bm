@@ -13,5 +13,7 @@ urlpatterns = [
     path("booking/", include("booking.urls"), name='booking-urls'),
     path("shop/", include("shop.urls"), name='shop-urls'),
     path('summernote/', include("django_summernote.urls")),
-    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    re_path(
+        r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
