@@ -19,7 +19,7 @@
             {% for item in cart_items %}
             <div class="cart-products row align-items-center border-top border-dark py-2">
                 
-                <a class="col-3" href="{% url 'product_detail' id=item.product.id}">{{ item.product.name }}</a>
+                <a class="col-3" href="{% url 'product_detail' id=item.product.id %}">{{ item.product.name }}</a>
                 <p class="col-3 text-center">{{ item.quantity }}</p>
                 <p class="col-3 text-center">{{ item.product.price}} €</p>
                 <p class="col-3 text-end">{{ item.get_cost }} €</p>   
@@ -48,7 +48,7 @@
             {% csrf_token %}
             {% for item in cart_items %}
             <div class="d-flex w-100 align-items-center justify-content-between border-bottom border-dark py-1">
-                <a class="quantity-name" href="{% url 'product_detail' id=item.product.id}">{{ item.product.name }}</a>
+                <a class="quantity-name" href="{% url 'product_detail' id=item.product.id %}">{{ item.product.name }}</a>
                 <input type="number" class="form-control quantity-input col-1" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="0">
             </div>
             {% endfor %}
