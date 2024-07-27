@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.core.paginator import Paginator
@@ -83,3 +84,26 @@ def post_detail(request, id):
          "comments":paginated_comments,
          "form":form},
     )
+
+@login_required
+def update_post(request, id):
+    """
+    Display update post page
+    """
+    post = Post.objects.get(id=id)
+    if post.author != request.user:
+        raise Http404("You are not allowed to edit this post")
+    
+    if request.method == 'POST':
+        if 'delete' in request.POST:
+            post.delete()
+            return redirect('blog')
+        else:
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                form.save()
+                return redirect('post_detail', id=post.id)
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, "blog/update_post.html", {"post": post,"form": form})
