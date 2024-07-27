@@ -9,10 +9,10 @@
       <div class="col card mb-4 mt-3 mx-auto owners-post">
         <div class="card-body">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title post-details">Author : {{ post.author }} | {{ post.created_at|naturaltime }}</h3>
+            <p class="card-title post-details">Author : {{ post.author }} | {{ post.created_at|naturaltime }}</p>
             
             <a href="{% url 'update_post' id=post.id %}"><i class="fa-solid fa-pen-to-square edit-button" 
-              {% if request.user.username != post.author.username %}hidden{% endif %}></i></a>
+              {% if request.user.username != post.author.username %}hidden{% endif %}></i><span hidden>Edit</span></a>
           </div>
           <div class="post-content">
             {{ post.content | safe }}
@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col card mb-2 comments">
         <div class="card-body">
-          <h3 class="comment-author">{{ comment.author }} | {{ comment.created_at|naturaltime }}</h3>
+          <p class="comment-author fw-bold">{{ comment.author }} | {{ comment.created_at|naturaltime }}</p>
           <p class="mb-0 comment-body">{{ comment.body | safe }}</p>
         </div>
       </div>
@@ -37,12 +37,12 @@
           {% if comments.has_previous %}
           <li>
             <a href="?page={{ comments.previous_page_number }}" class="page-link rounded-circle booking-prev-button">
-              <i class="fa-solid fa-arrow-left"></i></i></a>
+              <i class="fa-solid fa-arrow-left"></i><span hidden>Left</span></a>
           </li>
           {% endif %} {% if comments.has_next %}
           <li>
             <a href="?page={{ comments.next_page_number }}" class="page-link rounded-circle booking-next-button">
-              <i class="fa-solid fa-arrow-right"></i></a>
+              <i class="fa-solid fa-arrow-right"></i><span hidden>Right</span></a>
           </li>
           {% endif %}
         </ul>
@@ -58,7 +58,6 @@
     </div>
     {% endif %}
     <div class="row mb-1">
-      <h4 class="comment-header">Send your comment</h4>
       <form method="POST" class="comment-form px-0">
         {% csrf_token %}
         {{ form.as_p }}
