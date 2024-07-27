@@ -169,6 +169,11 @@
   color:#4b3832;
 }
 
+.blog-card-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 .create-post-button {
   background-color:#854442;
   color: #fff4e6;
@@ -182,6 +187,7 @@
 .post-link {
   text-decoration: none;
   color:inherit;
+  color: black;
 }
 
 .post-details {
@@ -207,16 +213,16 @@
   background-color: #be9b7b;
 }
 
-.comment-header {
-  color: #fff4e6;
-}
 
 .comment-author, .comment-body {
   font-size: 1rem;
 }
 
 .comment-form > p > label {
-  display: none;
+  margin-bottom: 2px;
+  color: #fff4e6;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .comment-form > p > textarea, .comment-form > p > textarea:focus  {
@@ -230,7 +236,7 @@
 }
 
 .delete-post-msg {
-  color: red;
+  color: #940000;
 }
 
 /* Shop */
@@ -257,6 +263,10 @@
 
 .product-card {
   width: 100%;
+}
+
+.product-card-name {
+  font-size: 1.2rem;
 }
 
 .product-card-info {
@@ -292,6 +302,10 @@
   font-size: 2rem;
 }
 
+.search-form {
+  height: 38px;
+}
+
 .quantity-info {
   color: black;
   font-weight: 500;
@@ -307,6 +321,7 @@
   border-radius: 5px;
   color: #fff4e6;
   padding: 0px 5px;
+  height: 38px;
 }
 
 .add-cart-message {
@@ -356,7 +371,7 @@
 }
 
 .cart-info {
-  color: red;
+  color: #750000;
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 0;

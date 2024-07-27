@@ -24,11 +24,9 @@
                                 <img src="{{ most_seller.image.url  }}" class="card-img-top" alt="{[most_seller.name]}">
                             </a>
                             <div class="card-body product-info-background">
-                                <a href="{% url 'product_detail' id=most_seller.id %}" class="product-card-info">
-                                    <h5 class="card-title product-card-name oswald-400">{{ most_seller.name }}</h5>
-                                </a>
-                                <p class="card-text product-card-price pt-sans-bold">{{ most_seller.price }} €
-                                </p>
+                                <h4 class="card-title product-card-name oswald-400">{{ most_seller.name }}</h4>
+                                <h5 class="card-text product-card-price pt-sans-bold">{{ most_seller.price }} €
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -53,10 +51,8 @@
                         class="card-img-top" alt="{{product.name}}"></a>
 
                 <div class="card-body product-info-background h-100">
-                    <a href="{% url 'product_detail' id=product.id %}" class="product-card-info">
-                        <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
-                    </a>
-                    <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
+                    <h4 class="card-title product-card-name oswald-400">{{ product.name }}</h4>
+                    <h5 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h5>
                 </div>
 
             </div>
@@ -77,10 +73,9 @@
                                 <img src="{{ product.image.url  }}" class="card-img-top" alt="{[product.name]}">
                             </a>
                             <div class="card-body product-info-background">
-                                <a href="{% url 'product_detail' id=product.id %}" class="product-card-info">
-                                    <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
-                                </a>
-                                <p class="card-text product-card-price pt-sans-bold">{{ product.price }} €</p>
+                                
+                                <h4 class="card-title product-card-name oswald-400">{{ product.name }}</h4>
+                                <h5 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h5>
                             </div>
                         </div>
                     </div>
@@ -106,31 +101,14 @@
                 </a>
 
                 <div class="card-body product-info-background h-100">
-                    <a href="{% url 'product_detail' id=product.id %}" class="product-card-info">
-                        <h5 class="card-title product-card-name oswald-400">{{ product.name }}</h5>
-                    </a>
-                    <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
+                    <h4 class="card-title product-card-name oswald-400">{{ product.name }}</h4>
+                    <h5 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h5>
                 </div>
 
             </div>
             {% endfor %}
         </div>
     </div>
-    <!-- <div class="row mx-auto row-gap-1">
-        {% for product in products %}
-        <div class="card mx-1 px-0 product-card">
-            <a href="" class="h-100"><img src="{{ product.image.url }}" class="card-img-top" alt="{{product.name}}"></a>
-
-            <div class="card-body product-info-background h-100">
-                <a href="" class="product-card-info">
-                    <h5 class="card-title product-card-name">{{ product.name }}</h5>
-                </a>
-                <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
-            </div>
-
-        </div>
-        {% endfor %}
-    </div> -->
 
 </div>
 

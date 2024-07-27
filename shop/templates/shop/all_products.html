@@ -11,7 +11,7 @@
             <!-- Filter -->
              <div class="d-flex gap-2">
                 <div>
-                    <!-- <label for="{{ form.filter_options.id_for_label }}" class="form-label align-self-end">Filter</label> -->
+                    <label for="{{ form.filter_options.id_for_label }}" class="form-label align-self-end"><span hidden>Filter</span></label>
                     <select name="{{ form.filter_options.name }}" id="{{ form.filter_options.id_for_label }}" class="form-select">
                         {% for value, label in form.filter_options.field.choices %}
                         <option value="{{ value }}" {% if form.filter_options.value|to_int == value %} selected {% endif %}>
@@ -21,7 +21,7 @@
                 </div>
                 <!-- Order -->
                 <div>
-                    <!-- <label for="{{ form.order_options.id_for_label }}" class="form-label align-self-end">Order By</label> -->
+                    <label for="{{ form.order_options.id_for_label }}" class="form-label align-self-end"><span hidden>Order By</span></label>
                     <select name="{{ form.order_options.name }}" id="{{ form.order_options.id_for_label }}" class="form-select">
                         {% for value, label in form.order_options.field.choices %}
                         <option value="{{ value }}" {% if form.order_options.value == value %} selected {% endif %}>
@@ -31,9 +31,9 @@
                 </div>
              </div>
              <!-- Search Area -->
-            <div class="d-flex gap-2">
-                <!-- <label for="{{ form.search.id_for_label }}">Search:</label> -->
-                <input type="text" name="{{ form.search.name }}" id="{{ form.search.id_for_label }}" class="form-control" 
+            <div class="d-flex gap-2 align-items-end">
+                <label for="{{ form.search.id_for_label }}"><span hidden>Search:</span></label>
+                <input type="text" name="{{ form.search.name }}" id="{{ form.search.id_for_label }}" class="form-control search-form" 
                 value="{% if search %}{{ form.search.value }}{% endif %}" placeholder="Search Product">
                 <button type="submit" class="filter-button">Apply</button>
             </div>
@@ -49,10 +49,8 @@
                     class="card-img-top" alt="{{product.name}}"></a>
 
             <div class="card-body product-info-background h-100">
-                <a href="{% url 'product_detail' product.id %}" class="product-card-info">
-                    <h5 class="card-title product-card-name">{{ product.name }}</h5>
-                </a>
-                <h6 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h6>
+                <h3 class="card-title product-card-name">{{ product.name }}</h3>
+                <h4 class="card-text product-card-price pt-sans-bold">{{ product.price }} €</h4>
             </div>
 
         </div>
@@ -66,13 +64,13 @@
                 <li>
                     <a href="?page={{ all_products.previous_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}{% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-prev-button">
-                        <i class="fa-solid fa-arrow-left"></i></i></a>
+                        <i class="fa-solid fa-arrow-left"></i><span hidden>Left</span></a>
                 </li>
                 {% endif %} {% if all_products.has_next %}
                 <li>
                     <a href="?page={{ all_products.next_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}{% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-next-button">
-                        <i class="fa-solid fa-arrow-right"></i></a>
+                        <i class="fa-solid fa-arrow-right"></i><span hidden>Right</span></a>
                 </li>
                 {% endif %}
             </ul>

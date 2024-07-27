@@ -49,12 +49,13 @@
             {% for item in cart_items %}
             <div class="d-flex w-100 align-items-center justify-content-between border-bottom border-dark py-1">
                 <a class="quantity-name" href="{% url 'product_detail' id=item.product.id %}">{{ item.product.name }}</a>
-                <input type="number" class="form-control quantity-input col-1" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="0">
+                <label for="id_{{ item.id }}"><span hidden>Search:</span></label>
+                <input type="number" class="form-control quantity-input col-1" id="id_{{ item.id }}" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="0">
             </div>
             {% endfor %}
             <div class="d-flex gap-2 justify-content-between mt-2">
                 <p class="cart-info"><i class="fa-solid fa-circle-info"></i> Set the quantity to 0 to remove the product.</p>
-                <button type="submit" class="btn btn-outline-success btn-sm update-cart-button">Update</button>
+                <button type="submit" class="btn btn-success btn-sm update-cart-button">Update</button>
             </div>
         </form>
     </div>

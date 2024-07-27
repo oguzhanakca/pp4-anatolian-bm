@@ -265,6 +265,10 @@
   width: 100%;
 }
 
+.product-card-name {
+  font-size: 1.2rem;
+}
+
 .product-card-info {
   text-decoration: none;
   color: #3c2f2f;
@@ -298,6 +302,10 @@
   font-size: 2rem;
 }
 
+.search-form {
+  height: 38px;
+}
+
 .quantity-info {
   color: black;
   font-weight: 500;
@@ -313,6 +321,7 @@
   border-radius: 5px;
   color: #fff4e6;
   padding: 0px 5px;
+  height: 38px;
 }
 
 .add-cart-message {
@@ -362,7 +371,7 @@
 }
 
 .cart-info {
-  color: red;
+  color: #750000;
   font-size: 0.8rem;
   font-weight: 500;
   margin-bottom: 0;
