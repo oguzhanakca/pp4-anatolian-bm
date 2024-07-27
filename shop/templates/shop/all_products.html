@@ -64,19 +64,13 @@
             <ul class="pagination justify-content-center">
                 {% if all_products.has_previous %}
                 <li>
-                    <a href="?page={{ all_products.previous_page_number }}
-                    {% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}
-                    {% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}
-                    {% if form.search.value %}&search={{ form.search.value }}{% endif %}"
+                    <a href="?page={{ all_products.previous_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}{% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-prev-button">
                         <i class="fa-solid fa-arrow-left"></i></i></a>
                 </li>
                 {% endif %} {% if all_products.has_next %}
                 <li>
-                    <a href="?page={{ all_products.next_page_number }}
-                    {% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}
-                    {% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}
-                    {% if form.search.value %}&search={{ form.search.value }}{% endif %}"
+                    <a href="?page={{ all_products.next_page_number }}{% if form.filter_options.value %}&filter_options={{ form.filter_options.value }}{% endif %}{% if form.order_options.value %}&order_options={{ form.order_options.value }}{% endif %}{% if form.search.value %}&search={{ form.search.value }}{% endif %}"
                         class="page-link rounded-circle booking-next-button">
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </li>
