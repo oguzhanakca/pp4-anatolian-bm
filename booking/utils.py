@@ -2,6 +2,7 @@ from django.core.mail import send_mail
 from django.template import Context, Template
 from django.conf import settings
 
+
 # Send email after successful booking
 def send_booking_success_email(user, booking):
     subject = 'Booking Successful - Awaiting Confirmation'

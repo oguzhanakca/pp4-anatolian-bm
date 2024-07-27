@@ -5,6 +5,7 @@ from .forms import BookingForm
 from .models import Booking
 from .utils import send_booking_success_email
 
+
 @login_required
 def book(request):
     """
@@ -14,14 +15,16 @@ def book(request):
 
     # Ordering
     order = request.GET.get('order', '-created_date')
+    r_date = "requested_date"
+    r_time = "requested_time"
     if order.startswith('-'):
-        new_order_date = order[1:] if order == "-requested_date" else "requested_date"
-        new_order_time = order[1:] if order == "-requested_time" else "requested_time"
+        new_order_date = order[1:] if order == f"-{r_date}" else r_date
+        new_order_time = order[1:] if order == f"-{r_time}" else r_time
         new_order_guests = order[1:] if order == "-guests" else "guests"
         new_order_status = order[1:] if order == "-status" else "status"
     else:
-        new_order_date = '-' + order if order == 'requested_date' else 'requested_date'
-        new_order_time = '-' + order if order == 'requested_time' else 'requested_time'
+        new_order_date = '-' + order if order == r_date else r_date
+        new_order_time = '-' + order if order == r_time else r_time
         new_order_guests = '-' + order if order == 'guests' else 'guests'
         new_order_status = '-' + order if order == 'status' else 'status'
 
@@ -47,21 +50,22 @@ def book(request):
         return redirect('booking_success')
     else:
         form = BookingForm()
-    
+
     return render(
-        request, 
-        'booking/booking.html', 
+        request,
+        'booking/booking.html',
         {
-            'form' : form, 
-            'paginated_list' : paginated_list, 
-            'user': user, 
-            'current_order': order, 
-            'new_order_date': new_order_date, 
-            'new_order_time': new_order_time, 
-            'new_order_guests': new_order_guests, 
+            'form': form,
+            'paginated_list': paginated_list,
+            'user': user,
+            'current_order': order,
+            'new_order_date': new_order_date,
+            'new_order_time': new_order_time,
+            'new_order_guests': new_order_guests,
             'new_order_status': new_order_status,
         }
     )
+
 
 def booking_success(request):
     return render(request, 'booking/booking_success.html')
