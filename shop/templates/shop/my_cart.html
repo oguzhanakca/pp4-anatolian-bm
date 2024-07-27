@@ -15,14 +15,14 @@
             <p class="col-3 text-end">Total</p>
         </div>
         <div class="px-2 w-100">
-            {% if cart_item %}
-            {% for item in cart_item %}
-            <div class="cart-products row align-items-center border-top py-2">
+            {% if cart_items %}
+            {% for item in cart_items %}
+            <div class="cart-products row align-items-center border-top border-dark py-2">
                 
-                <a class="col-3">{{ item.product.name }}</a>
-                <a class="col-3 text-center">{{ item.quantity }}</a>
-                <a class="col-3 text-center">{{ item.product.price}} €</a>
-                <a class="col-3 text-end">{{ item.get_cost }} €</a>   
+                <a class="col-3" href="{% url 'product_detail' id=item.product.id}">{{ item.product.name }}</a>
+                <p class="col-3 text-center">{{ item.quantity }}</p>
+                <p class="col-3 text-center">{{ item.product.price}} €</p>
+                <p class="col-3 text-end">{{ item.get_cost }} €</p>   
             </div>
             {% endfor %}
             {% else %}
@@ -31,9 +31,32 @@
         </div>
     </div>
     <!-- Total -->
-    {% if cart_item %}
+    {% if cart_items %}
     <div class="d-flex flex-row-reverse">
         <p class="border-top">Total : {{ cart.get_total_cost }} €</p>
+    </div>
+    <!-- Update Cart -->
+    <div class="row my-2">
+        <h2 class="cart-header">Update Cart</h2>
+    </div>
+    <div class="update-cart mb-2">
+        <div class="d-flex justify-content-between align-items-end w-100 cart-titles border-bottom border-dark">
+            <p class="ps-1">Product</p>
+            <p class="pe-1">Quantity</p>
+        </div>
+        <form action="{% url 'my_cart' %}" method="post">
+            {% csrf_token %}
+            {% for item in cart_items %}
+            <div class="d-flex w-100 align-items-center justify-content-between border-bottom border-dark py-1">
+                <a class="quantity-name" href="{% url 'product_detail' id=item.product.id}">{{ item.product.name }}</a>
+                <input type="number" class="form-control quantity-input col-1" name="quantity_{{ item.id }}" value="{{ item.quantity }}" min="0">
+            </div>
+            {% endfor %}
+            <div class="d-flex gap-2 justify-content-between mt-2">
+                <p class="cart-info"><i class="fa-solid fa-circle-info"></i> Set the quantity to 0 to remove the product.</p>
+                <button type="submit" class="btn btn-outline-success btn-sm update-cart-button">Update</button>
+            </div>
+        </form>
     </div>
     {% endif %}
 </div>

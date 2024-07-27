@@ -316,7 +316,7 @@
 }
 
 /* Cart */
-.cart {
+.cart, .update-cart {
   border: 1px solid #be9b7b;
   border-radius: 5px;
   padding: 5px;
@@ -330,6 +330,30 @@
 .cart-products > a {
   text-decoration: none;
   color: #4b3832;
+  font-weight: 500;
+}
+
+.quantity-name {
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 500;
+  color: #3c2f2f;
+}
+
+.quantity-input {
+  width: 3.5rem;
+  text-align: center;
+}
+
+.cart-info {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.update-cart-button {
+  max-height: 35px;
 }
 
 /* SM Breakpoint */

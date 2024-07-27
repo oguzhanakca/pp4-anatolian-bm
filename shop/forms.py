@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, CartItem
 
 class OrderAndFilterForm(forms.Form):
     """

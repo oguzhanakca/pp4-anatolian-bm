@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .models import Product, Cart, CartItem, Order, OrderItem
+from .models import Product, Cart, CartItem
 from .forms import OrderAndFilterForm
 
 @login_required
@@ -82,7 +82,24 @@ def my_cart(request):
     Displays users shopping cart
     """
     cart, created = Cart.objects.get_or_create(user=request.user)
-    cart_item = CartItem.objects.filter(cart=cart)
+    cart_items = CartItem.objects.filter(cart=cart)
+    if request.method == "POST":
+        for item in cart.items.all():
+            quantity_str = request.POST.get(f"quantity_{item.id}")
+            if quantity_str is not None:
+                try:
+                    quantity = int(quantity_str)
+                    if quantity > 0:
+                        item.quantity = quantity
+                        item.save()
+                    else:
+                        item.delete()
+                except ValueError:
+                    pass
+        return redirect('my_cart')
 
 
-    return render(request, "shop/my_cart.html", {"cart":cart,"cart_item":cart_item})
+    
+    
+
+    return render(request, "shop/my_cart.html", {"cart":cart,"cart_items":cart_items})
