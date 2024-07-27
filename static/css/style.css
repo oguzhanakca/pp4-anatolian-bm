@@ -3,7 +3,6 @@
 
 .vollkorn-font {
   font-family: "Vollkorn", serif;
-  font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   color: #3c2f2f;
@@ -17,7 +16,6 @@
 
 .oswald-400 {
   font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
