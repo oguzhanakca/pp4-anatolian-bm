@@ -1340,8 +1340,8 @@ You can clone the repository by following these steps:
 
 ### Code
 
-[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-Custom Forms : [Allauth](https://docs.allauth.org/en/latest/), [Stackoverflow](https://stackoverflow.com/)
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- Custom Forms : [Allauth](https://docs.allauth.org/en/latest/), [Stackoverflow](https://stackoverflow.com/)
 
 <hr>
 
