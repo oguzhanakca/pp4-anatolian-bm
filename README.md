@@ -1281,12 +1281,12 @@ The website was deployed to [Heroku](https://www.heroku.com/) using the followin
 
 9. Once you have set up the config vars, scroll down to buildpacks and add the Python buildpacks to your app and make sure that when they are displayed, they appear in the order:
 
-<img src="docs/heroku/heroku-8.jpg">
+<img src="docs/heroku/heroku-8.png">
 
 10. Navigate back to the Deploy tab.
 11. In the 'manual deploy' section beneath this, make sure the branch selected is 'main' and click deploy branch.
 
-<img src="docs/heroku/heroku-9.png">
+<img src="docs/heroku/heroku-9.jpg">
 
 12. Select automatic deploys to allow Heroku to build the site with new changes each time changes are pushed to GitHub.
 
