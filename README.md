@@ -1,6 +1,6 @@
 # Anatolian Bistro & Market
 
-![Am I Responsive](docs/am-i-responsive.PNG)
+![Am I Responsive](docs/am-i-responsive.png)
 
 ***Oğuzhan Akça***
 
